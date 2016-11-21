@@ -41,6 +41,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-collection_matchers'
+  gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'launchy'
