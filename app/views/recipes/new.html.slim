@@ -1,0 +1,6 @@
+section.container
+  h1 Add new recipe
+
+  = form_for @recipe, url: recipes_path do |f|
+    = f.text_field :name
+    = f.submit 'Create recipe', class: 'btn btn-default'

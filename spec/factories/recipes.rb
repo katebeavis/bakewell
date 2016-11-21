@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :recipe do
-    name "MyString"
+    name "Mini Bakewells"
   end
 end

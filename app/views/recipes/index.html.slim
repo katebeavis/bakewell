@@ -1,0 +1,15 @@
+section.container
+  h1 Recipes
+
+  = link_to 'Add new recipe', new_recipes_path, class: 'add-button btn btn-primary'
+
+  table.table.table-striped.table-bordered.table-hover
+    tr
+      th Name
+      th Description
+      th Created
+    - @recipes.each do |recipe|
+      tr
+        td = recipe.name
+        td = recipe.description
+        td = recipe.created_at.strftime('%d/%m/%y')
