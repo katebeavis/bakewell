@@ -1,6 +1,26 @@
 section.container
   h1 Add new recipe
 
-  = form_for @recipe, url: recipes_path do |f|
-    = f.text_field :name
-    = f.submit 'Create recipe', class: 'btn btn-default'
+  .container
+    .row
+      = form_for @recipe, url: recipes_path do |f|
+        .form-group
+          = f.label :name, "Name"
+          = f.text_field :name, class: 'form-control'
+          = error_for @recipe, :name
+
+        = f.fields_for :ingredients do |f|
+          .form-group
+            = f.label :name, "Ingredient"
+            = f.text_field :name, class: 'form-control'
+            = f.label :amount, "Amount"
+            = f.number_field :amount, class: 'form-control'
+
+        = f.fields_for :ingredients do |f|
+          .form-group
+            = f.label :name, "Ingredient"
+            = f.text_field :name, class: 'form-control'
+            = f.label :amount, "Amount"
+            = f.number_field :amount, class: 'form-control'
+
+        = f.submit 'Create recipe', class: 'btn btn-default'

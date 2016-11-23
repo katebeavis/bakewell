@@ -1,7 +1,7 @@
 section.container
   h1 Recipes
 
-  = link_to 'Add new recipe', new_recipes_path, class: 'add-button btn btn-primary'
+  = link_to 'Add new recipe', new_recipe_path, class: 'add-button btn btn-primary'
 
   table.table.table-striped.table-bordered.table-hover
     tr
@@ -12,4 +12,4 @@ section.container
       tr
         td = recipe.name
         td = recipe.description
-        td = recipe.created_at.strftime('%d/%m/%y')
+        td = recipe.created_at.strftime("%A #{recipe.created_at.day.ordinalize} %B %Y")

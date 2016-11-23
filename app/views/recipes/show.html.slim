@@ -1,0 +1,6 @@
+section.container
+  h2 = @recipe.name
+  - @recipe.ingredients.each do |i|
+    span = i.name
+    span = i.amount
+
