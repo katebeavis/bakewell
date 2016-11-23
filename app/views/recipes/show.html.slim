@@ -1,6 +1,14 @@
 section.container
   h2 = @recipe.name
-  - @recipe.ingredients.each do |i|
-    span = i.name
-    span = i.amount
-
+  table.table.table-striped.table-bordered.table-hover
+    tr
+      th Name
+      th Quantity
+      th Unit price
+      th Unit size
+    - @recipe.ingredients.each do |i|
+      tr
+        td = i.name
+        td = i.amount
+        td = number_to_currency(i.price, :unit => "£")
+        td = i.size

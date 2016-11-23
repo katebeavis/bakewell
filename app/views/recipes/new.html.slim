@@ -13,14 +13,11 @@ section.container
           .form-group
             = f.label :name, "Ingredient"
             = f.text_field :name, class: 'form-control'
-            = f.label :amount, "Amount"
-            = f.number_field :amount, class: 'form-control'
-
-        = f.fields_for :ingredients do |f|
-          .form-group
-            = f.label :name, "Ingredient"
-            = f.text_field :name, class: 'form-control'
-            = f.label :amount, "Amount"
-            = f.number_field :amount, class: 'form-control'
+            = f.label :amount, "Quantity"
+            = f.number_field :amount, step: :any, class: 'form-control'
+            = f.label :price, "Unit price"
+            = f.number_field :price, step: :any, class: 'form-control'
+            = f.label :size, "Unit size"
+            = f.number_field :size, class: 'form-control'
 
         = f.submit 'Create recipe', class: 'btn btn-default'
