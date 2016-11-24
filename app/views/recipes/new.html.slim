@@ -1,24 +1,19 @@
 section.container
-  h1 Add new recipe
+  h1 What would you like to call your recipe?
 
   .container
     .row
-      = form_for @recipe, url: recipes_path do |f|
-        .form-group
-          = f.label :name, "Name"
-          = f.text_field :name, class: 'form-control'
-          = error_for @recipe, :name
-
-        = f.fields_for :ingredients do |f|
+      .col-md-4
+        = form_for @recipe, url: recipes_path do |f|
           .form-group
-            = f.label :name, "Ingredient"
-            = f.text_field :name, class: 'form-control'
-            = error_for @recipe, "ingredients.name"
-            = f.label :amount, "Quantity"
-            = f.number_field :amount, step: :any, class: 'form-control'
-            = f.label :price, "Unit price"
-            = f.number_field :price, step: :any, class: 'form-control'
-            = f.label :size, "Unit size"
-            = f.number_field :size, class: 'form-control'
+            = f.text_field :name, class: 'form-control', placeholder: "Mini Bakewells"
+            = error_for @recipe, :name
+            br
+            h2 Now add some ingredients
 
-        = f.submit 'Create recipe', class: 'btn btn-default'
+            = f.fields_for :ingredients do |f|
+              = render 'ingredient_fields', f: f
+            .container
+              = link_to_add_association 'Add another ingredient', f, :ingredients
+
+          = f.submit 'Create recipe', class: 'btn btn-default'

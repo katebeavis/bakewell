@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
+      @recipe.update_attribute(:cost, @recipe.calculate_cost)
       redirect_to @recipe
     else
       render :new
@@ -24,6 +25,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, ingredients_attributes: [:id, :name, :amount, :price, :size])
+    params.require(:recipe).permit(:name, ingredients_attributes: [:id, :name, :amount, :price, :size, :unit_price, :_destroy])
   end
 end

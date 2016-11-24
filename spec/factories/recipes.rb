@@ -6,6 +6,13 @@ FactoryGirl.define do
       after(:create) do |recipe|
         create(:ingredient, recipe: recipe)
       end
+
+      factory :recipe_with_cost do
+        after(:create) do |recipe|
+          create(:ingredient, recipe: recipe)
+        end
+        cost 2.50
+      end
     end
     
   end

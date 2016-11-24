@@ -16,12 +16,14 @@ class Ingredient < ApplicationRecord
   end
 
   def update_unit_price_column
-    self.unit_price = calculate_price_per_unit
+    self.unit_price = calculate_price_per_amount
   end
-
-  private
 
   def calculate_price_per_unit
     price / size
+  end
+
+  def calculate_price_per_amount
+    calculate_price_per_unit * amount
   end
 end

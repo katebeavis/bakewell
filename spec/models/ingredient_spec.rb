@@ -67,20 +67,15 @@ RSpec.describe Ingredient, type: :model do
     end
   end
 
-  describe '#convert_price_into_pennies' do
-    it 'converts price into pennies' do
-      expect(subject.convert_price_into_pennies).to eq(250)
-    end
-
-    it 'converts prices beginning with 0 into pennies' do
-      params[:price] = 0.50
-      expect(subject.convert_price_into_pennies).to eq(50)
+  describe '#calculate_price_per_amount' do
+    it 'correctly calculates the price per amount' do
+      expect(subject.calculate_price_per_amount).to eq(1.25)
     end
   end
 
-  describe '#update_unit_price_column' do
-    it 'updates the unit price column with the correct amount per unit' do
-      expect(subject.update_unit_price_column).to eq(0.00625)
+  describe '#calculate_price_per_unit' do
+    it 'correctly calculates the price per unit' do
+      expect(subject.calculate_price_per_unit).to eq(0.00625)
     end
   end
 
@@ -88,7 +83,7 @@ RSpec.describe Ingredient, type: :model do
     it 'saves the price per unit' do
       expect {
         subject.save
-      }.to change(subject, :unit_price).from(nil).to(0.00625)
+      }.to change(subject, :unit_price).from(nil).to(1.25)
     end
   end
 end

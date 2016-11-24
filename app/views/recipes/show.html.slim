@@ -10,5 +10,8 @@ section.container
       tr
         td = i.name
         td = i.amount
-        td = number_to_currency(i.price, :unit => "£")
+        td = number_to_currency(i.price, unit: "£")
         td = i.size
+        td = i.unit_price
+  p total     
+  p = number_to_currency(@recipe.cost.to_s, unit: "£")
