@@ -10,6 +10,6 @@ section.container
       th Last updated
     - @recipes.each do |recipe|
       tr
-        td = recipe.name
+        td = link_to recipe.name, recipe_path(recipe.id)
         td = recipe.description
         td = recipe.created_at.strftime("%A #{recipe.created_at.day.ordinalize} %B %Y")

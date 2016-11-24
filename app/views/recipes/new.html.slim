@@ -13,6 +13,7 @@ section.container
           .form-group
             = f.label :name, "Ingredient"
             = f.text_field :name, class: 'form-control'
+            = error_for @recipe, "ingredients.name"
             = f.label :amount, "Quantity"
             = f.number_field :amount, step: :any, class: 'form-control'
             = f.label :price, "Unit price"

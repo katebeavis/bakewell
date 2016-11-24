@@ -84,13 +84,8 @@ RSpec.describe RecipesController, type: :controller do
     let(:params) do
       {
         recipe: {
-          name: 'Mini Bakewells'
-        },
-        ingredient: {
-          name: 'Sugar',
-          amount: 100,
-          price: 2.50,
-          size: 100
+          name: 'Mini Bakewells',
+          ingredients_attributes: {"0": { name: 'Sugar', amount: 100, price: 2.50, size: 100 }},
         }
       }
     end
@@ -113,7 +108,7 @@ RSpec.describe RecipesController, type: :controller do
 
     context 'invalid data' do
 
-      describe 'when name is missing' do
+      describe 'when recipe name is missing' do
 
         before do
           params[:recipe][:name] = nil
@@ -129,6 +124,32 @@ RSpec.describe RecipesController, type: :controller do
           post :create, params: params
 
           expect(response.body).to have_text('Please fill in a title')
+        end
+
+        it 'renders new' do
+          post :create, params: params
+
+          expect(response).to render_template :new
+        end
+
+      end
+
+      describe 'when ingredient name is missing' do
+
+        before do
+          params[:recipe][:ingredients_attributes][:"0"][:name] = nil
+        end
+
+        it 'does not create a recipe' do
+          expect {
+            post :create, params: params
+          }.to_not change(Recipe, :count)
+        end
+
+        it 'shows validation errors' do
+          post :create, params: params
+
+          expect(response.body).to have_text('can\'t be blank')
         end
 
         it 'renders new' do
