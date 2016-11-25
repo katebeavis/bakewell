@@ -33,7 +33,7 @@ RSpec.describe RecipesController, type: :controller do
     it 'has a title' do
       get :new
 
-      expect(response.body).to have_text('Add new recipe')
+      expect(response.body).to have_text('What would you like to call your recipe?')
     end
 
     it 'has a field to enter a title' do
@@ -161,50 +161,68 @@ RSpec.describe RecipesController, type: :controller do
       end
     end
 
-    describe '#show' do
-      render_views
+  end
 
-      let!(:recipe) { FactoryGirl.create :recipe_with_ingredients }
+  describe '#show' do
+    render_views
 
-      it 'displays the recipe name' do
+    let!(:recipe) { FactoryGirl.create :recipe_with_ingredients }
+
+    it 'displays the recipe name' do
+      get :show, params: {id: recipe}
+
+      expect(response.body).to have_text('Mini Bakewells')
+    end
+
+    context 'ingredient' do
+
+      it 'displays the name' do
         get :show, params: {id: recipe}
 
-        expect(response.body).to have_text('Mini Bakewells')
+        expect(response.body).to have_text('Sugar')
       end
 
-      context 'ingredient' do
+      it 'displays the quantity' do
+        get :show, params: {id: recipe}
 
-        it 'displays the name' do
-          get :show, params: {id: recipe}
-
-          expect(response.body).to have_text('Sugar')
-        end
-
-        it 'displays the quantity' do
-          get :show, params: {id: recipe}
-
-          expect(response.body).to have_text('100')
-        end
-
-        it 'displays the price' do
-          get :show, params: {id: recipe}
-          
-          expect(response.body).to have_text('£2.50')
-        end
-
-        it 'displays the size' do
-          get :show, params: {id: recipe}
-
-          expect(response.body).to have_text('100')
-        end
-
-        it 'displays the cost' do
-          get :show, params: {id: recipe}
-
-          expect(response.body).to have_text('£2.50')
-        end
+        expect(response.body).to have_text('100')
       end
 
+      it 'displays the price' do
+        get :show, params: {id: recipe}
+        
+        expect(response.body).to have_text('£2.50')
+      end
+
+      it 'displays the size' do
+        get :show, params: {id: recipe}
+
+        expect(response.body).to have_text('100')
+      end
+
+      it 'displays the cost' do
+        get :show, params: {id: recipe}
+
+        expect(response.body).to have_text('£2.50')
+      end
+    end
+
+  end
+
+  describe '#destroy' do
+    render_views
+
+    before :each do
+      @recipe = FactoryGirl.create :recipe_with_ingredients
+    end
+
+    it 'destroys the recipe' do
+      expect{delete :destroy, id: @recipe}.to change(Recipe, :count).by(-1)
+    end
+
+    it 'redirects to the recipe index' do
+      delete :destroy, id: @recipe
+      expect(response).to redirect_to(recipes_path)
     end
 
   end

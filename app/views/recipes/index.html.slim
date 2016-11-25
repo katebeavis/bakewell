@@ -13,3 +13,4 @@ section.container
         td = link_to recipe.name, recipe_path(recipe.id)
         td = recipe.description
         td = recipe.created_at.strftime("%A #{recipe.created_at.day.ordinalize} %B %Y")
+        td = link_to 'delete', recipe_path(recipe.id), data: { confirm: 'Are you sure?' }, method: :delete
