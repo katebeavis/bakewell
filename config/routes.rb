@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'recipes#index'
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  root 'welcome#index'
 
   resources :recipes
   
