@@ -1,3 +1,64 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.form-control-inline {
+  min-width: 0;
+  max-width: 8em;
+  display: inline;
+  margin-left: 1em;
+}
+
+.fa-times-circle {
+  color: #d9534f;
+  margin-left: 0.5em;
+}
+
+.fa-plus-circle {
+  color: #5cb85c;
+}
+
+.fa-chevron-circle-down {
+  color: #337ab7;
+}
+
+h1, h2 {
+  text-align: center;
+  padding-bottom: 0.25em;
+  padding-top: 0.25em;
+}
+
+.span {
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.form-group {
+  width: 100%;
+  text-align: center;
+}
+
+#recipe_name {
+  margin: auto;
+  width: 100%;
+  max-width: 30em;
+}
+
+.btn {
+  margin-top: 2em;
+}
+
+.errors-div {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+  border: 4px solid #337ab7;
+  border-radius: 5px;
+}
+
+.ingredients-fields {
+  display: none;
+}
+
+.container {
+  margin-top: 5em;
+}

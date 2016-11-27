@@ -1,12 +1,13 @@
-.nested-fields
-  .field
-    = f.text_field :name, class: 'form-control', placeholder: "Sugar"
-    = error_for @recipe, "ingredients.name"
-    br
-    = f.number_field :amount, step: :any, class: 'form-control', placeholder: "100"
-    br
-    = f.number_field :price, step: :any, class: 'form-control', placeholder: "2.50"
-    br
-    = f.number_field :size, class: 'form-control', placeholder: "400"
-  = link_to_remove_association "Delete", f
-br
+.form-inline
+  .nested-fields
+    .field
+      = f.text_field :name, class: 'form-control', placeholder: "Ingredient name"
+      / = error_for @recipe, "ingredients.name"
+
+      = f.number_field :amount, step: :any, class: 'form-control form-control-inline', placeholder: "Quantity"
+
+      = f.number_field :price, step: :any, class: 'form-control form-control-inline', placeholder: "Total price"
+
+      = f.number_field :size, class: 'form-control form-control-inline', placeholder: "Pack size"
+      = link_to_remove_association '<i class="fa fa-times-circle fa-lg"></i>'.html_safe, f
+  br

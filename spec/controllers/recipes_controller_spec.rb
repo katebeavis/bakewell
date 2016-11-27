@@ -135,7 +135,7 @@ RSpec.describe RecipesController, type: :controller do
         it 'shows validation errors' do
           post :create, params: params
 
-          expect(response.body).to have_text('Please fill in a title')
+          expect(response.body).to have_text('Please fill in all fields')
         end
 
         it 'renders new' do
@@ -161,7 +161,7 @@ RSpec.describe RecipesController, type: :controller do
         it 'shows validation errors' do
           post :create, params: params
 
-          expect(response.body).to have_text('can\'t be blank')
+          expect(response.body).to have_text('Please fill in all fields')
         end
 
         it 'renders new' do

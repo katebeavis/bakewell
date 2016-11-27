@@ -28,6 +28,8 @@ gem 'turbolinks', '~> 5'
 gem 'awesome_print'
 gem 'slim-rails'
 
+gem 'font-awesome-rails'
+
 gem 'jbuilder', '~> 2.5'
 
 gem "cocoon"

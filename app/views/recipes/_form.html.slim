@@ -1,19 +1,25 @@
 section.container
-  h1 What would you like to call your recipe?
-
-  .container
-    .row
-      .col-md-4
+  .row
+    .col-md-10.col-md-offset-1
+      - if @recipe.errors.any?
+        .errors-div
+          h4 Please fill in all fields
+      h1 What would you like to call your recipe?
+      br
+      .col-md-12
         = form_for @recipe do |f|
           .form-group
-            = f.text_field :name, class: 'form-control', placeholder: "Mini Bakewells"
-            = error_for @recipe, :name
+            = f.text_field :name, class: 'form-control form-title'
             br
-            h2 Now add some ingredients
+            br   
+            i.fa.fa-chevron-circle-down.fa-4x
+            .ingredients-fields
+              h2 Now add some ingredients
+              br
 
-            = f.fields_for :ingredients do |f|
-              = render 'ingredient_fields', f: f
-            .container
-              = link_to_add_association 'Add another ingredient', f, :ingredients
-
-          = f.submit "#{button_text} recipe", class: 'btn btn-success'
+              = f.fields_for :ingredients do |f|
+                = render 'ingredient_fields', f: f
+              .span
+                = link_to_add_association '<i class="fa fa-plus-circle fa-lg"></i> Add another ingredient'.html_safe, f, :ingredients
+              .text-center
+                = f.submit "#{button_text} recipe", class: 'btn btn-success'
