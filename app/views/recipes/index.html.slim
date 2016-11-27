@@ -1,4 +1,5 @@
 section.container
+  h1 Welcome #{current_user.first_name}
   h1 Recipes
 
   = link_to 'Add new recipe', new_recipe_path, class: 'add-button btn btn-primary'
