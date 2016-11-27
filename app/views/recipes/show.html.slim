@@ -15,3 +15,5 @@ section.container
         td = i.unit_price
   p total     
   p = number_to_currency(@recipe.cost.to_s, unit: "£")
+  p = link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-primary'
+  p = link_to 'Delete', recipe_path(@recipe.id), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

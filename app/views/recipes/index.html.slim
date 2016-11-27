@@ -6,12 +6,8 @@ section.container
   table.table.table-striped.table-bordered.table-hover
     tr
       th Name
-      th Description
       th Last updated
     - @recipes.each do |recipe|
       tr
         td = link_to recipe.name, recipe_path(recipe.id)
-        td = recipe.description
         td = recipe.created_at.strftime("%A #{recipe.created_at.day.ordinalize} %B %Y")
-        td = link_to 'delete', recipe_path(recipe.id), data: { confirm: 'Are you sure?' }, method: :delete
-        td = link_to 'update', edit_recipe_path(recipe)
