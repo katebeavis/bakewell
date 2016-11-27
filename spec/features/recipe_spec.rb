@@ -1,12 +1,12 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe 'Recipe page', type: :feature do
-  scenario 'adding a recipe' do
+# RSpec.describe 'Recipe page', type: :feature do
+#   scenario 'adding a recipe' do
     
-    visit '/'
+#     visit '/'
 
-    click_link 'Add new recipe'
+#     click_link 'Add new recipe'
 
-    expect(page).to have_content('Add new recipe')
-  end
-end
+#     expect(page).to have_content('Add new recipe')
+#   end
+# end

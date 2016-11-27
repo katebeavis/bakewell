@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :recipe do
     name "Mini Bakewells"
+    association :user
 
     factory :recipe_with_ingredients do
       after(:create) do |recipe|

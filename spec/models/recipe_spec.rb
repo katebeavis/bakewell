@@ -4,9 +4,11 @@ RSpec.describe Recipe, type: :model do
   subject { described_class.new params }
 
   let(:recipe) { Recipe.create }
+  let(:user) { FactoryGirl.create(:user_with_recipe) }
   let(:params) do
     {
       name: 'Mini Bakewells',
+      user_id: user.id,
       ingredients_attributes: {"0": { name: 'Sugar', amount: 100, price: 2.50, size: 100, unit_price: 2.50 },
                                "1": { name: 'Sugar', amount: 100, price: 2.50, size: 100, unit_price: 1 }},
     }
@@ -14,6 +16,8 @@ RSpec.describe Recipe, type: :model do
   
   describe 'associations' do
     it { should have_many(:ingredients) }
+
+    it { should belong_to(:user) }
   end
 
   describe '#valid?' do
