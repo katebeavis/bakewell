@@ -62,3 +62,16 @@ h1, h2 {
 .container {
   margin-top: 5em;
 }
+
+.page-footer span {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  margin: auto;
+  padding-top: 1.5em;
+}
+
+.page-footer {
+  height: 4.5em;
+  border-top: 1px solid #eeeeee;
+}
