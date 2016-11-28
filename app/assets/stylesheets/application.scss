@@ -18,6 +18,23 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- body {
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
   overflow-x:hidden;
+}
+
+.page-header {
+  margin-top: 10px;
+}
+
+.container-fluid {
+  border-top: 1px solid #eeeeee;
+}
+
+.page-footer {
+  height: 4em;
 }
