@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all.order(updated_at: :desc)
+    @recipes = current_user.recipes.all.order(updated_at: :desc)
   end
 
   def new

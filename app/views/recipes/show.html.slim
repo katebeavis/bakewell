@@ -1,6 +1,7 @@
 section.container
-  h2 = @recipe.name
-  table.table.table-striped.table-bordered.table-hover
+  h1 = @recipe.name
+  h2 = "Total cost: #{number_to_currency(@recipe.cost.to_s, unit: "£")}"
+  table.table
     tr
       th Name
       th Quantity
@@ -9,11 +10,9 @@ section.container
     - @recipe.ingredients.each do |i|
       tr
         td = i.name
-        td = i.amount
+        td = number_with_precision(i.amount, :precision => 0)
         td = number_to_currency(i.price, unit: "£")
-        td = i.size
-        td = i.unit_price
-  p total     
-  p = number_to_currency(@recipe.cost.to_s, unit: "£")
+        td = number_with_precision(i.size, :precision => 0)
+
   p = link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-primary'
   p = link_to 'Delete', recipe_path(@recipe.id), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

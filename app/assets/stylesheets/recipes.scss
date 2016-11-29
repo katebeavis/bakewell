@@ -8,8 +8,24 @@
   margin-left: 1em;
 }
 
+.link-container {
+  margin-top: 3em;
+  width: 100%;
+}
+
+.link-container a {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
 .fa-times-circle {
   color: #d9534f;
+  margin-left: 0.5em;
+}
+
+.fa-times-circle:hover {
+  color: #AD2C28;
   margin-left: 0.5em;
 }
 
@@ -17,8 +33,16 @@
   color: #5cb85c;
 }
 
+.fa-plus-circle:hover {
+  color: #3E963E;
+}
+
 .fa-chevron-circle-down {
   color: #337ab7;
+}
+
+.fa-chevron-circle-down:hover {
+  color: #1D5C91;
 }
 
 h1, h2 {
@@ -65,4 +89,9 @@ h1, h2 {
   display: inline-block;
   margin: auto;
   padding-top: 1.5em;
+}
+
+table {
+  margin-top: 3em;
+  font-size: 1.5em;
 }

@@ -10,4 +10,39 @@ module ApplicationHelper
 
     error_div_with klass.errors[attribute].first
   end
+
+  def greeting
+    if (times[:morning]..times[:noon]).cover? times[:now]
+      "Good morning"
+    elsif (times[:noon]..times[:evening]).cover? times[:now]
+      "Good afternoon"
+    elsif (times[:evening]..times[:night]).cover? times[:now]
+      "Good evening"
+    end
+  end
+
+  def personalised_message
+    messages.sample
+  end
+
+  private
+
+  def messages
+    [
+      'What have you baked today?',
+      'Time to add a new recipe!',
+      'Let\'s get baking!',
+      'Anything yummy cooking?'
+    ]
+  end
+
+  def times
+    {
+      now: Time.now,
+      morning: Date.today.beginning_of_day,
+      noon: Date.today.noon,
+      evening: Date.today.to_time.change(hour: 17),
+      night: Date.today.tomorrow
+    }
+  end
 end
