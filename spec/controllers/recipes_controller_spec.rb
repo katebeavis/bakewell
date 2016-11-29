@@ -11,16 +11,10 @@ RSpec.describe RecipesController, type: :controller do
 
     let!(:recipe) { FactoryGirl.create :recipe }
 
-    it 'has a title' do
-      get :index
-
-      expect(response.body).to have_text('Recipes')
-    end
-
     it 'has an add button' do
       get :index
 
-      expect(response.body).to have_css '.add-button', text: 'Add new recipe'
+      expect(response.body).to have_css '.add-button'
     end
 
     it 'shows all recipes' do
@@ -113,7 +107,7 @@ RSpec.describe RecipesController, type: :controller do
       it 'redirects to recipe show page' do
         post :create, params: params
 
-        expect(response).to redirect_to recipe_path(8)
+        expect(response).to redirect_to recipe_path(6)
       end
 
     end

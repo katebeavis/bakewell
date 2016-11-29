@@ -2,7 +2,6 @@
   .nested-fields
     .field
       = f.text_field :name, class: 'form-control', placeholder: "Ingredient name"
-      / = error_for @recipe, "ingredients.name"
 
       = f.number_field :amount, step: :any, class: 'form-control form-control-inline', placeholder: "Quantity"
 

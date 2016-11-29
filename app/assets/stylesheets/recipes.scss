@@ -8,6 +8,18 @@
   margin-left: 1em;
 }
 
+.form-portion {
+  min-width: 0;
+  max-width: 4em;
+  display: inline;
+  margin: auto;
+}
+
+.hint {
+  font-size: 0.8em;
+  color: grey;
+}
+
 .link-container {
   margin-top: 3em;
   width: 100%;
@@ -79,7 +91,7 @@ h1, h2 {
   border-radius: 5px;
 }
 
-.ingredients-fields {
+.quantity-fields, .ingredients-fields {
   display: none;
 }
 
