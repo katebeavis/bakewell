@@ -8,6 +8,7 @@ RSpec.describe Recipe, type: :model do
   let(:params) do
     {
       name: 'Mini Bakewells',
+      quantity: 8,
       user_id: user.id,
       ingredients_attributes: {"0": { name: 'Sugar', amount: 100, price: 2.50, size: 100, unit_price: 2.50 },
                                "1": { name: 'Sugar', amount: 100, price: 2.50, size: 100, unit_price: 1 }},
@@ -41,6 +42,12 @@ RSpec.describe Recipe, type: :model do
   describe '#calculate_cost' do
     it 'calculates the cost of a recipe' do
       expect(subject.calculate_cost).to eq(3.50)
+    end
+  end
+
+  describe '#calculate_portion_cost' do
+    it 'calculates the cost of a portion' do
+      expect(subject.calculate_portion_cost).to eq(0.44)
     end
   end
 end

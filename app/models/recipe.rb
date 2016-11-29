@@ -10,4 +10,8 @@ class Recipe < ApplicationRecord
   def calculate_cost
     self.ingredients.map { |i| i['unit_price'] }.reduce(:+)
   end
+
+  def calculate_portion_cost
+    (calculate_cost / self.quantity).round(2)
+  end
 end
