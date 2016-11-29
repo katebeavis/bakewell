@@ -19,6 +19,8 @@ RSpec.describe Recipe, type: :model do
     it { should have_many(:ingredients) }
 
     it { should belong_to(:user) }
+
+    it { should have_many(:notes) }
   end
 
   describe '#valid?' do

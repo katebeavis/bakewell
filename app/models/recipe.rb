@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   has_many :ingredients, inverse_of: :recipe, :dependent => :destroy
+  has_many :notes, inverse_of: :recipe, :dependent => :destroy
 
   belongs_to :user
 
