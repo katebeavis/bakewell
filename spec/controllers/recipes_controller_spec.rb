@@ -107,7 +107,7 @@ RSpec.describe RecipesController, type: :controller do
       it 'redirects to recipe show page' do
         post :create, params: params
 
-        expect(response).to redirect_to recipe_path(6)
+        expect(response).to redirect_to recipe_path(10)
       end
 
     end
@@ -120,7 +120,7 @@ RSpec.describe RecipesController, type: :controller do
           params[:recipe][:name] = nil
         end
 
-        it 'does not create a recipe' do
+        it 'does NOT create a recipe' do
           expect {
             post :create, params: params
           }.to_not change(Recipe, :count)
