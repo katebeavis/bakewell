@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe NoteController, type: :controller do
+RSpec.describe NotesController, type: :controller do
 
 end

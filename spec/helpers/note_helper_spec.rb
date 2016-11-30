@@ -1,4 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe NoteHelper, type: :helper do
+RSpec.describe NotesHelper, type: :helper do
 end

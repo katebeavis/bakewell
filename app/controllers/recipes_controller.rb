@@ -10,9 +10,6 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
-    if @recipe.errors.any?
-      raise fail
-    end
     if @recipe.save
       @recipe.update_attribute(:cost, @recipe.calculate_cost)
       redirect_to @recipe

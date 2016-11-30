@@ -14,5 +14,14 @@ section.container
         td = number_to_currency(i.price, unit: "£")
         td = number_with_precision(i.size, :precision => 0)
 
+    = form_for([@recipe, @recipe.notes.build]) do |f|
+      .form-group
+        = f.text_field :body
+
+        = f.submit
+
+    - @recipe.notes.each do |note|
+      = note.body
+
   p = link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-primary'
   p = link_to 'Delete', recipe_path(@recipe.id), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'
