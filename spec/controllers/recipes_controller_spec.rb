@@ -107,7 +107,7 @@ RSpec.describe RecipesController, type: :controller do
       it 'redirects to recipe show page' do
         post :create, params: params
 
-        expect(response).to redirect_to recipe_path(10)
+        expect(response).to redirect_to recipe_path(1)
       end
 
     end
@@ -176,10 +176,10 @@ RSpec.describe RecipesController, type: :controller do
       sign_in FactoryGirl.create(:user)
     end
 
-    let!(:recipe) { FactoryGirl.create :recipe_with_ingredients }
+    let!(:recipe) { FactoryGirl.create :recipe_with_ingredients, user_id: 1 }
 
     it 'displays the recipe name' do
-      get :show, params: {id: recipe}
+      get :show, params: {id: recipe, user_id: 1}
 
       expect(response.body).to have_text('Mini Bakewells')
     end
@@ -222,40 +222,49 @@ RSpec.describe RecipesController, type: :controller do
   describe '#destroy' do
     render_views
 
-    before :each do
-      sign_in FactoryGirl.create(:user_with_recipe)
-      @recipe = FactoryGirl.create :recipe_with_ingredients
+    before(:each) do
+      sign_in FactoryGirl.create(:user)
     end
 
+    let!(:recipe) { FactoryGirl.create :recipe_with_ingredients, user_id: 1 }
+
     it 'destroys the recipe' do
-      expect{delete :destroy, params: { id: @recipe }}.to change(Recipe, :count).by(-1)
+      expect{delete :destroy, params: { id: recipe, user_id: 1 }}.to change(Recipe, :count).by(-1)
     end
 
     it 'redirects to the recipe index' do
-      delete :destroy, params: { id: @recipe }
+      delete :destroy, params: { id: recipe, user_id: 1 }
+
       expect(response).to redirect_to(recipes_path)
+    end
+
+    it 'displays a flash message' do
+      delete :destroy, params: { id: recipe }
+
+      expect(flash[:notice]).to match(/^Recipe successfully deleted/)
     end
 
   end
 
   describe '#update' do
-    before :each do
-      @recipe = FactoryGirl.create :recipe_with_ingredients
-      sign_in FactoryGirl.create(:user_with_recipe)
+    before(:each) do
+      sign_in FactoryGirl.create(:user)
     end
 
-    xit 'locates the requested recipe' do
-      process :update, method: :post, params: { id: @recipe }
+    let!(:recipe) { FactoryGirl.create :recipe_with_ingredients, user_id: 1 }
 
-      expect(assigns(:recipe_with_ingredients)).to eq(@recipe)
+    xit 'locates the requested recipe' do
+      process :update, method: :post, params: { id: recipe, user_id: 1 }
+
+      expect(assigns(:recipe_with_ingredients)).to eq(recipe)
     end
 
     it 'changes the recipes attributes' do
-      put :update, id: @recipe,
+      put :update, params: { id: recipe, user_id: 1,
         recipe: FactoryGirl.attributes_for(:recipe,  
-          name: "Chocolate")
-      @recipe.reload
-      expect(@recipe.name).to eq("Chocolate")
+          name: "Chocolate") }
+      recipe.reload
+      expect(recipe.name).to eq("Chocolate")
     end
 
   end

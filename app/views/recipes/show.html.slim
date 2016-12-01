@@ -19,12 +19,12 @@ section.container
       = f.text_area :body
 
       = f.submit 'Add note', class: 'btn btn-success'
-
-  - @recipe.notes.each do |note|
-    .panel.panel-default
-      .panel-body
-        = note.body
-        = link_to '<i class="fa fa-times-circle fa-lg"></i>'.html_safe, [note.recipe, note], data: { confirm: 'Are you sure?' }, method: :delete
+  #comments
+    - @notes.each do |note|
+      .panel.panel-default
+        .panel-body
+          = note.body
+          = link_to '<i class="fa fa-times-circle fa-lg"></i>'.html_safe, [note.recipe, note], data: { confirm: 'Are you sure?' }, method: :delete
 
   p = link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-primary'
   p = link_to 'Delete', recipe_path(@recipe.id), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

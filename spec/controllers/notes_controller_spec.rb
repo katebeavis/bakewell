@@ -30,7 +30,7 @@ RSpec.describe NotesController, type: :controller do
       it 'redirects to the recipe page' do
         post :create, params: params
 
-        expect(response).to redirect_to recipe_path(2)
+        expect(response).to redirect_to "http://test.host/recipes/1#comments"
       end
     end
 
@@ -59,6 +59,18 @@ RSpec.describe NotesController, type: :controller do
 
     it 'destroys the note' do
       expect{delete :destroy, params: { recipe_id: recipe.id, id: note.id }}.to change(Note, :count).by(-1)
+    end
+
+    it 'redirects to the recipe page' do
+      delete :destroy, params: { recipe_id: recipe.id, id: note.id }
+
+      expect(response).to redirect_to(recipe)
+    end
+
+    it 'displays a flash message' do
+      delete :destroy, params: { recipe_id: recipe.id, id: note.id }
+
+      expect(flash[:notice]).to match(/^Note successfully deleted/)
     end
   end
 

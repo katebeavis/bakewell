@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+
   def index
     @recipes = current_user.recipes.all.order(updated_at: :desc)
   end
@@ -19,15 +20,16 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
+    @notes = @recipe.notes.order(updated_at: :desc)
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     if @recipe.update_attributes(recipe_params)
       @recipe.update_attribute(:cost, @recipe.calculate_cost)
       redirect_to @recipe
@@ -35,8 +37,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     @recipe.destroy
+    flash[:notice] = 'Recipe successfully deleted'
     redirect_to recipes_path
   end
 
