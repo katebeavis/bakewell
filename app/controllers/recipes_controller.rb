@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = current_user.recipes.find(params[:id])
     @notes = @recipe.notes.order(updated_at: :desc)
+    @portion_cost = @recipe.calculate_portion_cost
   end
 
   def edit

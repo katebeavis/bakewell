@@ -13,6 +13,6 @@ class Recipe < ApplicationRecord
   end
 
   def calculate_portion_cost
-    (calculate_cost / self.quantity).round(2)
+    (calculate_cost / self.quantity).round(2) if self.quantity
   end
 end

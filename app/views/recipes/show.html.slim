@@ -14,11 +14,19 @@ section.container
         td = number_to_currency(i.price, unit: "£")
         td = number_with_precision(i.size, :precision => 0)
 
+  = form_for @recipe do |f|
+    .form-group
+      = f.number_field :quantity, class: 'form-control form-portion'
+
+      = f.submit 'Add note', class: 'btn btn-success'
+
   = form_for([@recipe, @recipe.notes.build]) do |f|
     .form-group
       = f.text_area :body
 
       = f.submit 'Add note', class: 'btn btn-success'
+
+  = @portion_cost
   #comments
     - @notes.each do |note|
       .panel.panel-default
