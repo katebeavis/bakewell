@@ -1,7 +1,11 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = current_user.recipes.all.order(updated_at: :desc)
+    if params[:search]
+      @recipes = current_user.recipes.search(params[:search]).order(updated_at: :desc)
+    else
+      @recipes = current_user.recipes.all.order(updated_at: :desc)
+    end
   end
 
   def new
