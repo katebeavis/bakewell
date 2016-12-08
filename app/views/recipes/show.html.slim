@@ -18,7 +18,7 @@ section.container
     .form-group
       = f.number_field :quantity, class: 'form-control form-portion'
 
-      = f.submit 'Add note', class: 'btn btn-success'
+      = f.submit 'Add portion size', class: 'btn btn-success'
 
   = form_for([@recipe, @recipe.notes.build]) do |f|
     .form-group
