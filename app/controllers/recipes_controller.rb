@@ -1,11 +1,10 @@
+require 'will_paginate/array'
+
 class RecipesController < ApplicationController
+  respond_to :html, :js
 
   def index
-    if params[:search]
-      @recipes = current_user.recipes.search(params[:search]).order(updated_at: :desc)
-    else
-      @recipes = current_user.recipes.all.order(updated_at: :desc)
-    end
+    @recipes = current_user.recipes.search(params[:search]).order(updated_at: :desc)
   end
 
   def new

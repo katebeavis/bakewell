@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :notes
   end
+
+  match 'search(/:search)', :to => 'recipes#index', :as => :search, via: [:get, :post]
   
 end

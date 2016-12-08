@@ -1,0 +1,13 @@
+= hidden_field_tag :direction, params[:direction]
+= hidden_field_tag :sort, params[:sort]
+
+table.table
+  tr
+    th Recipe name
+    th Total price
+    th Last updated
+  - @recipes.each do |recipe|
+    tr
+      td = link_to recipe.name, recipe_path(recipe.id)
+      td = number_to_currency(recipe.cost.to_s, unit: "£")
+      td = recipe.created_at.strftime("%A #{recipe.created_at.day.ordinalize} %B %Y")

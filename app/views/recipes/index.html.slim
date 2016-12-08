@@ -7,13 +7,5 @@ section.container
   .link-container
     = link_to '<i class="fa fa-plus-circle fa-5x rotate"></i>'.html_safe, new_recipe_path, class: 'add-button center'
 
-  table.table
-    tr
-      th Recipe name
-      th Total price
-      th Last updated
-    - @recipes.each do |recipe|
-      tr
-        td = link_to recipe.name, recipe_path(recipe.id)
-        td = number_to_currency(recipe.cost.to_s, unit: "£")
-        td = recipe.created_at.strftime("%A #{recipe.created_at.day.ordinalize} %B %Y")
+  .recipes
+    = render 'recipes'

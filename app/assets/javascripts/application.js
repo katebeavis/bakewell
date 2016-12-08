@@ -16,3 +16,14 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function() {
+  // $(".recipes th a, .recipes .pagination a").on("click", function() {
+  //   $.getScript(this.href);
+  //   return false;
+  // });
+  $("#search-form input").keyup(function() {
+    $.get($("#search-form").attr("index"), $("#search-form").serialize(), null, "script");
+    return false;
+  });
+});
