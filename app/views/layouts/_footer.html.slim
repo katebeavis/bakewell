@@ -1,3 +1,6 @@
 footer.page-footer.footer
   .container-fluid
-    span Made by Kate Beavis &copy; #{Time.now.year}
+    span Made with <i class="fa fa-heart"></i> by Kate Beavis &copy; #{Time.now.year}
+    | &nbsp;
+    span.version-number
+      = "version #{@version_number}"

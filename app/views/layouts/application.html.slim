@@ -5,16 +5,17 @@ html lang='en'
       | CodeNameBakewell
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Vidaloka|Playfair+Display", rel: "stylesheet"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   body
     = render 'layouts/header'
 
-    - if notice
-      p.alert.alert-success = notice
-    - if alert
-      p.alert.alert-danger = alert
+    / - if notice
+    /   p.alert.alert-success = notice
+    / - if alert
+    /   p.alert.alert-danger = alert
     
     = yield
 

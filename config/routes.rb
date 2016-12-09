@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks: "callbacks", registrations: 'users/registrations' }
-  root 'recipes#index'
+  root 'welcome#index'
 
   resources :recipes do
     resources :notes

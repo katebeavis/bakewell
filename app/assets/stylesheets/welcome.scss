@@ -1,3 +1,58 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+span.title {
+  font-size: 10em;
+  color: #F9F1DC;
+  background-color: #222;
+  padding: 0 0.25em 0 0.25em;
+  margin: 0 auto;
+  width: 60%;
+  text-align: center;
+  display: block;
+  text-shadow: 3px 3px purple;
+  position: relative;
+  top: 0.5em;
+}
+
+.egg {
+  position: fixed;
+  left: 83em;
+  bottom: 30em;
+}
+
+.blurb {
+  font-size: 1.7em;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  top: 4em;
+  text-shadow: 1px 1px purple;
+  letter-spacing: 1px;
+}
+
+.get-started {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  width: 35%;
+  position: relative;
+  top: 5.2em;
+  padding: 0.3em 2em 0.3em 2em;
+  border: 6px solid #222;
+  border-radius: 4em;
+}
+
+.get-started a {
+  font-weight: 600;
+  text-shadow: 1px 1px purple;
+  text-decoration: none !important;
+  color: #222;
+}
+
+.get-started:hover {
+  background-color: #F9F1DC;
+}

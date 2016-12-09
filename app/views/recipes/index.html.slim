@@ -7,5 +7,8 @@ section.container
   .link-container
     = link_to '<i class="fa fa-plus-circle fa-5x"></i>'.html_safe, new_recipe_path, class: 'add-button'
 
-  .recipes
-    = render 'recipes'
+  - if @recipes.any?
+    .recipes
+      = render 'recipes'
+  - else
+    h2 Looks like you haven't added any recipes yet! Click the <i class="fa fa-plus-circle"></i> to get started
