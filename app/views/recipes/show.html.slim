@@ -1,24 +1,42 @@
 section.container
-  h1 = @recipe.name
-  h2 = "Total cost: #{number_to_currency(@recipe.cost.to_s, unit: "£")}"
-  table.table
-    tr
-      th Name
-      th Quantity
-      th Unit price
-      th Unit size
-    - @recipe.ingredients.each do |i|
-      tr
-        td = i.name
-        td = number_with_precision(i.amount, :precision => 0)
-        td = number_to_currency(i.price, unit: "£")
-        td = number_with_precision(i.size, :precision => 0)
+  h1.show-title = @recipe.name
+  .row
+    .col-md-4.col-md-offset-4
+      .quantity-breakdown
+        span
+          br
+          = form_for @recipe do |f|
+            .form-group
+              = f.number_field :quantity, class: 'form-control form-portion'
 
-  = form_for @recipe do |f|
-    .form-group
-      = f.number_field :quantity, class: 'form-control form-portion'
-
-      = f.submit 'Add portion size', class: 'btn btn-success'
+              - if @recipe.quantity?
+                = f.submit 'Update', class: 'button servings-button'
+              - else
+                = f.submit 'Servings', class: 'button servings-button'
+      .cost-breakdown
+        span
+          | Cost:
+          br
+        span
+          = number_to_currency(@recipe.cost.to_s, unit: "£")
+          br
+        span.hint
+          = "(#{number_to_currency(@portion_cost, unit: "£")}/serving)" if @recipe.quantity? 
+  .row
+    .col-md-6.col-md-offset-3
+      table.table
+        tr
+          th.hide Name
+          th.hide Quantity
+          th.hide Unit price
+          th.hide Unit size
+        - @recipe.ingredients.each do |i|
+          tr
+            td.title-row = i.name
+            td.text-right.title-row = number_with_precision(i.amount, :precision => 0)
+          tr
+            td.hint = number_to_currency(i.price, unit: "£")
+            td.hint.text-right weight
 
   = form_for([@recipe, @recipe.notes.build]) do |f|
     .form-group
@@ -26,7 +44,6 @@ section.container
 
       = f.submit 'Add note', class: 'btn btn-success'
 
-  = @portion_cost
   #comments
     - @notes.each do |note|
       .panel.panel-default

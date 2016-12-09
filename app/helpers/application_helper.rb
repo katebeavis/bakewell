@@ -37,7 +37,7 @@ module ApplicationHelper
   def messages
     [
       'What have you baked today?',
-      'Time to add a new recipe!',
+      'What\'s cooking?',
       'Let\'s get baking!',
       'Anything yummy cooking?'
     ]

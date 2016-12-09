@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $cream-font-color: #F9F1DC;
+$background-color: #222;
+$main-text-color: #222;
 
 .form-control-inline {
   min-width: 0;
@@ -15,6 +17,7 @@ $cream-font-color: #F9F1DC;
   max-width: 5em;
   display: inline;
   margin: auto;
+  margin-top: -1em;
 }
 
 .hint {
@@ -36,21 +39,26 @@ $cream-font-color: #F9F1DC;
 }
 
 .fa-times-circle {
-  color: #d9534f;
+  color: $main-text-color;
   margin-left: 0.5em;
+  text-shadow: 1px 1px purple;
 }
 
 .fa-times-circle:hover {
-  color: #AD2C28;
   margin-left: 0.5em;
 }
 
 .fa-plus-circle {
-  color: #5cb85c;
+  color: $main-text-color;
+  text-shadow: 1px 1px purple;
 }
 
-.fa-plus-circle:hover {
-  color: #3E963E;
+a.add_fields {
+  color: $main-text-color;
+}
+
+a.add_fields:hover {
+  color: $main-text-color;
 }
 
 .fa-chevron-circle-down {
@@ -68,7 +76,7 @@ h1, h2 {
 
 .span {
   text-align: center;
-  font-size: 1.25em;
+  font-size: 1.3em;
 }
 
 .form-group {
@@ -99,7 +107,6 @@ h1, h2 {
 }
 
 table {
-  // background-color: white!important;
   margin-top: 3em;
   font-size: 1.75em;
   tr.first-row:hover + tr {
@@ -154,4 +161,81 @@ table {
   top: 12em;
   right: -12.5em;
   z-index: 10;
+}
+
+.chevron-anchor-recipes {
+  font-size: 5vw;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: $main-text-color !important;
+  text-shadow: 2px 2px purple;
+  margin-bottom: 0.5em;
+}
+
+.chevron-anchor-recipes:hover {
+  color: $main-text-color;
+}
+
+.chocolate {
+  max-width: 10em;
+  position: fixed;
+  bottom: -2em;
+  left: -8em;
+}
+
+input.button {
+  background-color: transparent !important;
+  margin-top: 2.5em;
+}
+
+input.button:hover {
+  background-color: $background-color !important;
+  color: $cream-font-color;
+  text-decoration: underline;
+}
+
+.fa-times-circle {
+  font-size: 1.7em;
+}
+
+.rotate {
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+}  
+
+.rotate:hover {
+-webkit-transform:rotate(90deg);
+-moz-transform:rotate(90deg);
+-o-transform:rotate(90deg);
+}
+
+.cost-breakdown {
+  font-size: 1.75em;
+  float: right;
+}
+
+.cost-breakdown span:nth-child(2) {
+  font-size: 1.2em;
+}
+
+.quantity-breakdown {
+  font-size: 1.75em;
+  float: left;
+}
+
+.servings-button {
+  font-size: 0.7em !important;
+  margin-top: 0.8em !important;
+}
+
+.show-title {
+  margin-bottom: 1em;
 }

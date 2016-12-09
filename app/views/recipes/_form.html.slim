@@ -6,13 +6,13 @@ section.container
           h4 Please fill in all fields
       h1 What would you like to call your recipe?
       br
-      .col-md-12
+      .col-md-8.col-md-offset-2
         = form_for @recipe do |f|
           .form-group
             = f.text_field :name, class: 'form-control'
             br
             br   
-            i.fa.fa-chevron-circle-down.fa-4x
+            i.fa.fa-chevron-down.fa-4x.chevron-anchor-recipes
 
             .ingredients-fields
               h2 Now add some ingredients
@@ -21,6 +21,9 @@ section.container
               = f.fields_for :ingredients do |f|
                 = render 'ingredient_fields', f: f
               .span
-                = link_to_add_association '<i class="fa fa-plus-circle fa-lg"></i> Add another ingredient'.html_safe, f, :ingredients
+                = link_to_add_association '<i class="fa fa-plus-circle fa-lg rotate"></i> Add another ingredient'.html_safe, f, :ingredients
               .text-center
-                = f.submit "#{button_text} recipe", class: 'btn btn-success'
+                = f.submit "#{button_text} recipe", class: 'button'
+
+.chocolate
+  = image_tag('chocolate-1.png')
