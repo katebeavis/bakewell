@@ -15,3 +15,7 @@
           tr.quantity-row
             td.hint = "#{recipe.quantity.floor} servings"
             td.hint.text-right = "(#{number_to_currency(recipe.calculate_portion_cost, unit: "£")}/serving)"
+        - else
+          tr.quantity-row
+            td.hint n/a
+            td.hint.text-right n/a
