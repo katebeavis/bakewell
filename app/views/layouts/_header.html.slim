@@ -3,14 +3,14 @@ header.page-header
 
     - if user_signed_in?
       span
-        = link_to 'Settings', edit_user_registration_path, class: 'navbar-link'
+        = link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link button'
         | &nbsp;
       span
-        = link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'
+        = link_to 'Settings', edit_user_registration_path, class: 'navbar-link button'
       - if controller.controller_name == 'recipes' && controller.action_name == 'index'
         span
           = form_tag(recipes_path, method: :get, id: 'search-form', remote: true) do
             = text_field_tag :search, params[:search], placeholder: 'Search'
       - else
-        span.home-button
-          = link_to 'Home', recipes_path
+        span
+          = link_to 'Home', recipes_path, class: 'button'

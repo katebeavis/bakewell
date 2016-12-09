@@ -5,10 +5,16 @@ section.container
   h2 #{personalised_message}
 
   .link-container
-    = link_to '<i class="fa fa-plus-circle fa-5x"></i>'.html_safe, new_recipe_path, class: 'add-button'
+    = link_to 'Add recipe', new_recipe_path, class: 'add-button button'
 
   - if @recipes.any?
     .recipes
       = render 'recipes'
   - else
     h2 Looks like you haven't added any recipes yet! Click the <i class="fa fa-plus-circle"></i> to get started
+
+  .bread
+    = image_tag('Bread.png')
+
+  .whisk
+    = image_tag('whisk.png')

@@ -1,13 +1,17 @@
 = hidden_field_tag :direction, params[:direction]
 = hidden_field_tag :sort, params[:sort]
 
-table.table
-  tr
-    th Recipe name
-    th Total price
-    th Last updated
-  - @recipes.each do |recipe|
-    tr
-      td = link_to recipe.name, recipe_path(recipe.id)
-      td = number_to_currency(recipe.cost.to_s, unit: "£")
-      td = recipe.created_at.strftime("%A #{recipe.created_at.day.ordinalize} %B %Y")
+.row
+  .col-md-6.col-md-offset-3
+    table.table
+      tr
+        th.hide Recipe name
+        th.hide Total price
+      - @recipes.each do |recipe|
+        tr.first-row data-link=recipe_path(recipe.id)
+          td.title-row = link_to recipe.name, recipe_path(recipe.id)
+          td.text-right.cost-row = number_to_currency(recipe.cost.to_s, unit: "£")
+        - if recipe.quantity?
+          tr.quantity-row
+            td.hint = "#{recipe.quantity.floor} servings"
+            td.hint.text-right = "(#{number_to_currency(recipe.calculate_portion_cost, unit: "£")}/serving)"

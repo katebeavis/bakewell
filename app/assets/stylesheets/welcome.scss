@@ -1,10 +1,16 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$cream-font-color: #F9F1DC;
+$main-text-color: #222;
+
+.container {
+  margin-top: 0;
+}
 
 span.title {
-  font-size: 10em;
-  color: #F9F1DC;
+  font-size: 10vw;
+  color: $cream-font-color;
   background-color: #222;
   padding: 0 0.25em 0 0.25em;
   margin: 0 auto;
@@ -12,47 +18,67 @@ span.title {
   text-align: center;
   display: block;
   text-shadow: 3px 3px purple;
-  position: relative;
-  top: 0.5em;
+  margin-top: 0.75em;
 }
 
 .egg {
   position: fixed;
   left: 83em;
-  bottom: 30em;
+  bottom: 34em;
 }
 
 .blurb {
-  font-size: 1.7em;
+  font-size: 1.7vw;
   text-align: center;
   margin: 0 auto;
   display: block;
-  position: relative;
-  top: 4em;
-  text-shadow: 1px 1px purple;
   letter-spacing: 1px;
+  margin-top: 1em;
 }
 
 .get-started {
-  font-size: 1.5em;
   text-align: center;
   margin: 0 auto;
   display: block;
   width: 35%;
+  clear: both;
+  margin-top: 2em;
+}
+
+.fa-quote-left {
+  font-size: 0.8em;
   position: relative;
-  top: 5.2em;
-  padding: 0.3em 2em 0.3em 2em;
-  border: 6px solid #222;
-  border-radius: 4em;
+  bottom: 0.5em;
 }
 
-.get-started a {
-  font-weight: 600;
-  text-shadow: 1px 1px purple;
-  text-decoration: none !important;
-  color: #222;
+.fa-quote-right {
+  font-size: 0.8em;
+  position: relative;
+  bottom: 0.5em;
 }
 
-.get-started:hover {
-  background-color: #F9F1DC;
+.chevron-anchor {
+  font-size: 5vw;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: $main-text-color !important;
+  text-shadow: 3px 3px purple;
+  margin-top: 1em;
+}
+
+.chevron-anchor:hover {
+  color: $main-text-color;
+}
+
+#intro-one {
+  margin-top: 3em;
+  margin-bottom: 20em;
+}
+
+.mum {
+  max-height: 20em;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }

@@ -1,13 +1,25 @@
 section.container
   span.title Bakewell
 
-  span.blurb
-    | We create and sustain digital products.
-    br
-    | We cultivate consumer engagement.
+  .blurb
+    | <i class="fa fa-quote-left" aria-hidden="true"></i> Helping you to bake well. <i class="fa fa-quote-right" aria-hidden="true"></i>
+  / br
+  / br
+  / br
+  / br
+  / br
+  / br
+  / br
+  .get-started
+    = link_to 'Get started', recipes_path, class: 'button'
 
-  span.get-started
-    = link_to 'GET STARTED', recipes_path
+  = link_to '<i class="fa fa-chevron-down" aria-hidden="true"></i>'.html_safe, root_path(anchor: "intro-one"), class: 'chevron-anchor'
+
+section.container id='intro-one'
+  .row
+    .col-md-8.col-md-offset-2
+      h2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+      = image_tag('mum_baking.jpg', class: 'mum')
 
 .egg
   = image_tag('Egg-19.png')

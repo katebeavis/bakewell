@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require font-awesome
+ *= require jquery-ui
  *= require_tree .
  *= require_self
  */
@@ -18,13 +19,17 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+$cream-font-color: #F9F1DC;
+$background-color: #222;
+$main-text-color: #222;
+
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  font-family: 'Vidaloka', serif;
+  font-family: 'Lora', serif;
   font-weight: 600;
   min-height: 100%;
   overflow-x:hidden;
@@ -35,12 +40,12 @@ body {
   margin-top: 0;
 }
 
-.container-fluid {
-  // border-top: 1px solid #eeeeee;
-}
-
 body {
   margin-bottom: 4em;
+}
+
+.pre-footer {
+  clear: both;
 }
 
 .footer {
@@ -48,7 +53,6 @@ body {
   bottom: 0;
   width: 100%;
   height: 3.5em;
-  // background-color: #f5f5f5;
 }
 
 .page-footer span {
@@ -59,25 +63,26 @@ body {
 }
 
 .page-footer span:first-child {
-  color: #FEF9F0;
-  float: left;
-  background-color: #222;
+  color: $main-text-color;
+  float: right;
   position: relative;
   top: 1em;
-  right: 0.5em;
+  right: -0.7em;
   padding: 0.3em 0.5em 0.3em 0.5em;
   border-radius: 0.25em;
 }
 
 .page-footer span:nth-child(2) {
-  color: #FEF9F0;
+  color: $main-text-color;
   float: right;
-  background-color: #222;
   position: relative;
   top: 1em;
-  left: 0.5em;
+  left: 1.2em;
   padding: 0.3em 0.5em 0.3em 0.5em;
   border-radius: 0.25em;
+  a {
+    color: $main-text-color;
+  }
 }
 
 .page-footer span {
@@ -89,48 +94,42 @@ body {
 
 .page-header span:first-child {
   float: right;
-  background-color: #222;
   position: relative;
-  top: 0.5em;
-  left: 0.5em;
-  padding: 0.5em 0.7em 0.5em 0.7em;
-  border-radius: 0.25em;
+  top: 0.8em;
+  right: -1em;
 }
 
 .page-header span:nth-child(2) {
   float: right;
-  background-color: #222;
   position: relative;
-  top: 0.5em;
-  left: 0.3em;
-  padding: 0.5em 0.7em 0.5em 0.7em;
-  border-radius: 0.25em;
+  top: 0.8em;
+  left: 0.7em;
 }
 
 .page-header span a {
-  color: #FEF9F0;
   z-index: -10;
+  font-size: 1vw;
 }
 
-.page-header span:hover {
-  background-color: #FEF9F0;
-}
+// .page-header span:hover {
+//   background-color: $cream-font-color;
+// }
 
-.page-header span a:hover {
-  color: #222; 
-  text-decoration: none; 
-  cursor: pointer;
-}
+// .page-header span a:hover {
+//   color: $main-text-color; 
+//   text-decoration: none; 
+//   cursor: pointer;
+// }
 
-span.home-button a {
-  // position: relative;
-  // bottom: 1.5em;
-  // right: 0.5em;
-  color: black;
-  padding: 0.5em 0.7em 0.5em 0.7em;
-  border-radius: 0.25em;
-  // background-color: #222;
-  // border-color: #222;
+.page-header span:nth-child(3) {
+  position: relative;
+  top: 0.8em;
+  right: 0.5em;
+//   // color: black;
+//   // padding: 0.5em 0.7em 0.5em 0.7em;
+//   // border-radius: 0.25em;
+//   // background-color: #222;
+//   // border-color: #222;
 }
 
 // span.btn:hover {
@@ -147,4 +146,18 @@ span.home-button a {
   top: 0.5em;
   right: 0.5em;
   max-width: 10em;
+}
+
+.button {
+  font-size: 1.5vw;
+  padding: 0.3em 2em 0.3em 2em;
+  border: 2px solid #222;
+  border-radius: 4em;
+  font-weight: 400;
+  color: $main-text-color;
+}
+
+.button:hover {
+  background-color: $background-color;
+  color: $cream-font-color;
 }
