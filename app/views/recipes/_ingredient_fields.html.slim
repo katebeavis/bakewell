@@ -5,11 +5,11 @@
 
       = f.number_field :amount, step: :any, class: 'form-control form-control-inline ingredient-amount', placeholder: "Quantity"
 
-      = f.select :amount_unit_of_measurement, [['g','G'],['kg','Kg'],['ml','Ml'],['l','L'],['oz','Oz'],['tsp','Tsp'],['tbsp','Tbsp'],['unit','Unit']], {}, {required: 'true', autofocus: 'true', class: 'form-control dropdown', placeholder: "g"}
+      = f.select :amount_unit_of_measurement, [['g','g'],['kg','kg'],['ml','ml'],['l','l'],['oz','oz'],['tsp','tsp'],['tbsp','tbsp'],['unit','unit']], {}, {required: 'true', autofocus: 'true', class: 'form-control dropdown', placeholder: "g"}
 
       = f.number_field :price, step: :any, class: 'form-control form-control-inline ingredient-price', placeholder: "Price"
 
-      = f.number_field :size, class: 'form-control form-control-inline ingredient-size', placeholder: "Pack size"
+      = f.number_field :size, step: :any, class: 'form-control form-control-inline ingredient-size', placeholder: "Pack size"
 
       = f.select :size_unit_of_measurement, [['g','g'],['kg','kg'],['ml','ml'],['l','l'],['oz','oz'],['tsp','tsp'],['tbsp','tbsp'],['unit','unit']], {}, {required: 'true', autofocus: 'true', class: 'form-control dropdown'}
       = link_to_remove_association '<i class="fa fa-times-circle fa-lg rotate"></i>'.html_safe, f

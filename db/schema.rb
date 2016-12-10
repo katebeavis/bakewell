@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20161210185929) do
     t.decimal  "price"
     t.decimal  "size"
     t.decimal  "unit_price"
-    t.string   "density_unit"
     t.string   "amount_unit_of_measurement"
     t.string   "size_unit_of_measurement"
   end
