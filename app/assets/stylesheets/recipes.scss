@@ -262,3 +262,21 @@ input.button:hover {
 .comments-body {
   font-size: 1.5em;
 }
+
+.ingredient-amount, .ingredient-size {
+  max-width: 7em;
+}
+
+.ingredient-price {
+  max-width: 5.6em;
+}
+
+.ingredient-name {
+  max-width: 10em;
+}
+
+.dropdown {
+  margin-left: 0.1em;
+}
+
+

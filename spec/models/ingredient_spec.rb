@@ -11,7 +11,8 @@ RSpec.describe Ingredient, type: :model do
       amount: 200,
       price: 2.5,
       size: 400,
-      density_unit: 'g',
+      amount_unit_of_measurement: 'g',
+      size_unit_of_measurement: 'g',
       recipe_id: recipe.id
     }
   end
@@ -60,6 +61,26 @@ RSpec.describe Ingredient, type: :model do
     context 'when size is blank' do
       before do
         params.merge! size: ''
+      end
+
+      specify 'returns false' do
+        expect(subject.valid?).to eq(false)
+      end
+    end
+
+    context 'when amount unit of measurement is blank' do
+      before do
+        params.merge! amount_unit_of_measurement: ''
+      end
+
+      specify 'returns false' do
+        expect(subject.valid?).to eq(false)
+      end
+    end
+
+    context 'when size unit of measurement is blank' do
+      before do
+        params.merge! size_unit_of_measurement: ''
       end
 
       specify 'returns false' do

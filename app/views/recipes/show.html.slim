@@ -29,14 +29,14 @@ section.container
           th.hide Name
           th.hide Quantity
           th.hide Unit price
-          th.hide Unit size
+          th.hide Unit price per unit
         - @recipe.ingredients.each do |i|
           tr
             td.title-row = i.name
-            td.text-right.title-row = number_with_precision(i.amount, :precision => 0)
+            td.text-right.title-row = "#{number_with_precision(i.amount, :precision => 0)}#{i.amount_unit_of_measurement.downcase}"
           tr
             td.hint = number_to_currency(@recipe.calculate_cost, unit: "£")
-            td.hint.text-right weight
+            td.hint.text-right = "(#{number_to_currency(i.calculate_price_per_unit * 100, unit: "£")}/100#{i.amount_unit_of_measurement.downcase})"
 
       = form_for([@recipe, @recipe.notes.build]) do |f|
         .form-group

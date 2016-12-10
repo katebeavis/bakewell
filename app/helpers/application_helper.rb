@@ -39,7 +39,7 @@ module ApplicationHelper
       'What have you baked today?',
       'What\'s cooking?',
       'Let\'s get baking!',
-      'Anything yummy cooking?'
+      'Anything tasty cooking?'
     ]
   end
 

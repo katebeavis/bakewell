@@ -76,6 +76,18 @@ RSpec.describe RecipesController, type: :controller do
         expect(response.body).to have_css('input#recipe_ingredients_attributes_0_size')
       end
 
+      it 'has a field to enter amount unit of measurement' do
+        get :new
+
+        expect(response.body).to have_css('select#recipe_ingredients_attributes_0_amount_unit_of_measurement')
+      end
+
+      it 'has a field to enter size unit of measurement' do
+        get :new
+
+        expect(response.body).to have_css('select#recipe_ingredients_attributes_0_size_unit_of_measurement')
+      end
+
     end
 
   end
@@ -91,7 +103,7 @@ RSpec.describe RecipesController, type: :controller do
       {
         recipe: {
           name: 'Mini Bakewells',
-          ingredients_attributes: {"0": { name: 'Sugar', amount: 100, price: 2.50, size: 100, density_unit: 'g' }},
+          ingredients_attributes: {"0": { name: 'Sugar', amount: 100, price: 2.50, size: 100, amount_unit_of_measurement: 'g', size_unit_of_measurement: 'g' }},
         }
       }
     end
@@ -195,7 +207,7 @@ RSpec.describe RecipesController, type: :controller do
       it 'displays the quantity' do
         get :show, params: {id: recipe}
 
-        expect(response.body).to have_text('200')
+        expect(response.body).to have_text('200g')
       end
 
       it 'displays the recipe cost' do
