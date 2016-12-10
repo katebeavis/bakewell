@@ -91,7 +91,7 @@ RSpec.describe RecipesController, type: :controller do
       {
         recipe: {
           name: 'Mini Bakewells',
-          ingredients_attributes: {"0": { name: 'Sugar', amount: 100, price: 2.50, size: 100 }},
+          ingredients_attributes: {"0": { name: 'Sugar', amount: 100, price: 2.50, size: 100, density_unit: 'g' }},
         }
       }
     end

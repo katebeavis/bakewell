@@ -10,8 +10,8 @@ RSpec.describe Recipe, type: :model do
       name: 'Mini Bakewells',
       quantity: 8,
       user_id: user.id,
-      ingredients_attributes: {"0": { name: 'Sugar', amount: 100, price: 2.50, size: 100, unit_price: 2.50 },
-                               "1": { name: 'Sugar', amount: 100, price: 2.50, size: 100, unit_price: 1 }},
+      ingredients_attributes: {"0": { name: 'Sugar', amount: 100, price: 2.50, size: 100, unit_price: 2.50, density_unit: 'g' },
+                               "1": { name: 'Sugar', amount: 100, price: 2.50, size: 100, unit_price: 1, density_unit: 'g' }},
     }
   end
   

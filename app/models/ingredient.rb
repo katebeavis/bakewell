@@ -5,6 +5,7 @@ class Ingredient < ApplicationRecord
             :amount,
             :price,
             :size,
+            :density_unit,
             presence: true
 
   accepts_nested_attributes_for :recipe

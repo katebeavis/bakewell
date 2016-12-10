@@ -11,6 +11,7 @@ RSpec.describe Ingredient, type: :model do
       amount: 200,
       price: 2.5,
       size: 400,
+      density_unit: 'g',
       recipe_id: recipe.id
     }
   end

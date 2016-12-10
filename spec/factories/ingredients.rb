@@ -6,6 +6,7 @@ FactoryGirl.define do
       price 2.50
       size 400
       unit_price 4
+      density_unit 'g'
     end
 
     factory :egg do
@@ -14,6 +15,7 @@ FactoryGirl.define do
       price 2
       size 10
       unit_price 4
+      density_unit 'g'
     end
 
     factory :flour do
@@ -22,6 +24,7 @@ FactoryGirl.define do
       price 2
       size 1500
       unit_price 4
+      density_unit 'g'
     end
 
     factory :cocoa do
@@ -30,6 +33,7 @@ FactoryGirl.define do
       price 3.50
       size 500
       unit_price 4
+      density_unit 'g'
     end
 
     factory :baking_powder do
@@ -38,6 +42,7 @@ FactoryGirl.define do
       price 2
       size 100
       unit_price 4
+      density_unit 'g'
     end
 
     factory :salt do
@@ -46,6 +51,7 @@ FactoryGirl.define do
       price 1
       size 500
       unit_price 4
+      density_unit 'g'
     end
 
     factory :milk do
@@ -54,6 +60,7 @@ FactoryGirl.define do
       price 1.50
       size 1000
       unit_price 4
+      density_unit 'g'
     end
   end
 end
