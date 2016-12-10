@@ -4,7 +4,4 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  def version_number
-    @version_number = 0.1
-  end
 end

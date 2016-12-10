@@ -237,5 +237,24 @@ input.button:hover {
 }
 
 .show-title {
-  margin-bottom: 1em;
+  margin-bottom: 0.25em;
+  font-size: 5em;
+}
+
+.bread-2 {
+  position: fixed;
+  top: 17em;
+  left: -14em;
+}
+
+.chocolate-2 {
+  position: fixed;
+  bottom: -6em;
+  right: -12em;
+}
+
+.no-recipe-warning {
+  max-width: 50%;
+  margin: 0 auto;
+  margin-top: 2em;
 }
