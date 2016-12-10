@@ -33,10 +33,10 @@ section.container
         - @recipe.ingredients.each do |i|
           tr
             td.title-row = i.name
-            td.text-right.title-row = "#{number_with_precision(i.amount, precision: 0)}#{i.amount_unit_of_measurement.downcase}"
+            td.text-right.title-row = "#{number_with_precision(i.amount, precision: 0)}#{i.amount_unit_of_measurement unless i.is_unit?}"
           tr
             td.hint = number_to_currency(i.unit_price, unit: "£")
-            td.hint.text-right = "(#{number_to_currency(i.calculate_price_per_unit, unit: "£", precision: 4)}/100#{i.amount_unit_of_measurement.downcase})"
+            td.hint.text-right = "(#{number_to_currency(i.calculate_price_per_unit * 100, unit: "£", precision: i.determine_precision)}/100#{i.amount_unit_of_measurement unless i.is_unit?})"
 
       = form_for([@recipe, @recipe.notes.build]) do |f|
         .form-group

@@ -188,7 +188,7 @@ RSpec.describe RecipesController, type: :controller do
       sign_in FactoryGirl.create(:user)
     end
 
-    let!(:recipe) { FactoryGirl.create :recipe_with_ingredients, user_id: 1 }
+    let!(:recipe) { FactoryGirl.create :recipe_with_cost, user_id: 1 }
 
     it 'displays the recipe name' do
       get :show, params: {id: recipe, user_id: 1}
@@ -213,7 +213,7 @@ RSpec.describe RecipesController, type: :controller do
       it 'displays the recipe cost' do
         get :show, params: {id: recipe}
 
-        expect(response.body).to have_text('£3.07')
+        expect(response.body).to have_text('£2.50')
       end
     end
 

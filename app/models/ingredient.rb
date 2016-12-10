@@ -35,6 +35,14 @@ class Ingredient < ApplicationRecord
     self.amount = convert_amount_unit
   end
 
+  def is_unit?
+    self.amount_unit_of_measurement == 'unit'
+  end
+
+  def determine_precision
+    (calculate_price_per_unit * 100) < 0.009 ? 4 : 2
+  end
+
   private
 
   def size_can_be_converted?
