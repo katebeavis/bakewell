@@ -249,12 +249,16 @@ input.button:hover {
 
 .chocolate-2 {
   position: fixed;
-  bottom: -6em;
-  right: -12em;
+  bottom: -10em;
+  right: -16em;
 }
 
 .no-recipe-warning {
   max-width: 50%;
   margin: 0 auto;
   margin-top: 2em;
+}
+
+.comments-body {
+  font-size: 1.5em;
 }

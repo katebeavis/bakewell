@@ -195,25 +195,13 @@ RSpec.describe RecipesController, type: :controller do
       it 'displays the quantity' do
         get :show, params: {id: recipe}
 
-        expect(response.body).to have_text('100')
+        expect(response.body).to have_text('200')
       end
 
-      it 'displays the price' do
-        get :show, params: {id: recipe}
-        
-        expect(response.body).to have_text('£2.50')
-      end
-
-      it 'displays the size' do
+      it 'displays the recipe cost' do
         get :show, params: {id: recipe}
 
-        expect(response.body).to have_text('100')
-      end
-
-      it 'displays the cost' do
-        get :show, params: {id: recipe}
-
-        expect(response.body).to have_text('£2.50')
+        expect(response.body).to have_text('£3.07')
       end
     end
 

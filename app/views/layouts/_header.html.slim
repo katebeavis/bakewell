@@ -9,7 +9,7 @@ header.page-header
         = link_to 'Settings', edit_user_registration_path, class: 'navbar-link button'
       - if controller.controller_name == 'recipes' && controller.action_name == 'index'
         span
-          = form_tag(recipes_path, method: :get, id: 'search-form form-control', remote: true) do
+          = form_tag(recipes_path, method: :get, id: 'search-form', remote: true) do
             = text_field_tag :search, params[:search], placeholder: 'Search'
       - else
         span

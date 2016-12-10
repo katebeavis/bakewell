@@ -35,24 +35,23 @@ section.container
             td.title-row = i.name
             td.text-right.title-row = number_with_precision(i.amount, :precision => 0)
           tr
-            td.hint = number_to_currency(i.price, unit: "£")
+            td.hint = number_to_currency(@recipe.calculate_cost, unit: "£")
             td.hint.text-right weight
 
-  = form_for([@recipe, @recipe.notes.build]) do |f|
-    .form-group
-      = f.text_area :body
+      = form_for([@recipe, @recipe.notes.build]) do |f|
+        .form-group
+          = f.text_area :body
 
-      = f.submit 'Add note', class: 'btn btn-success'
+          = f.submit 'Add note', class: 'button'
 
-  #comments
-    - @notes.each do |note|
-      .panel.panel-default
-        .panel-body
-          = note.body
+      #comments
+        - @notes.each do |note|
+          .comments-body
+            = note.body
           = link_to '<i class="fa fa-times-circle fa-lg"></i>'.html_safe, [note.recipe, note], data: { confirm: 'Are you sure?' }, method: :delete
 
-  p = link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-primary'
-  p = link_to 'Delete', recipe_path(@recipe.id), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'
+      p = link_to 'Edit', edit_recipe_path(@recipe), class: 'button'
+      p = link_to 'Delete', recipe_path(@recipe.id), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button'
 
   .bread-2
     = image_tag('Bread-2.png')
