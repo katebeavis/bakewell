@@ -3,15 +3,16 @@ section.container
   h1 #{greeting} #{current_user.first_name}
 
   h2 #{personalised_message}
+  .row
+    .col-md-6.col-md-offset-3
+      .link-container
+        = link_to 'Add recipe', new_recipe_path, class: 'add-button button'
 
-  .link-container
-    = link_to 'Add recipe', new_recipe_path, class: 'add-button button'
-
-  - if @recipes.any?
-    .recipes
-      = render 'recipes'
-  - else
-    h2.no-recipe-warning Looks like you haven't added any recipes yet! Click add recipe to get started
+      - if @recipes.any?
+        .recipes
+          = render 'recipes'
+      - else
+        h2.no-recipe-warning Looks like you haven't added any recipes yet! Click add recipe to get started
 
   .bread
     = image_tag('Bread.png')
