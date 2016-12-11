@@ -1,29 +1,17 @@
 section.container
-  h1.show-title = @recipe.name
   .row
-    .col-md-4.col-md-offset-4
-      .quantity-breakdown
-        span
-          br
-          = form_for @recipe do |f|
-            .form-group
-              = f.number_field :quantity, class: 'form-control form-portion'
-
-              - if @recipe.quantity?
-                = f.submit 'Update', class: 'button servings-button'
-              - else
-                = f.submit 'Servings', class: 'button servings-button'
+    .col-md-6.col-md-offset-3
+      h1.show-title = @recipe.name
       .cost-breakdown
         span
-          | Cost:
-          br
-        span
+          | Cost: 
           = number_to_currency(@recipe.cost.to_s, unit: "£")
           br
         span.hint
-          = "(#{number_to_currency(@portion_cost, unit: "£")}/serving)" if @recipe.quantity? 
-  .row
-    .col-md-6.col-md-offset-3
+          - if @recipe.quantity?
+            = "(#{number_to_currency(@portion_cost, unit: "£")}/serving)"
+          - else
+            = link_to 'Add servings', recipe_path(@recipe.id, anchor: 'quantity-breakdown'), class: 'button'
       table.table
         tr
           th.hide Name
@@ -38,20 +26,32 @@ section.container
             td.hint = number_to_currency(i.unit_price, unit: "£")
             td.hint.text-right = "(#{number_to_currency(i.calculate_price_per_unit * 100, unit: "£", precision: i.determine_precision)}/100#{i.amount_unit_of_measurement unless i.is_unit?})"
 
-      = form_for([@recipe, @recipe.notes.build]) do |f|
-        .form-group
-          = f.text_area :body
-
-          = f.submit 'Add note', class: 'button'
-
       #comments
+        - if @notes.count >= 1
+          h2 Notes
         - @notes.each do |note|
           .comments-body
             = note.body
-          = link_to '<i class="fa fa-times-circle fa-lg"></i>'.html_safe, [note.recipe, note], data: { confirm: 'Are you sure?' }, method: :delete
+            = link_to '<i class="fa fa-times-circle fa-lg rotate"></i>'.html_safe, [note.recipe, note], data: { confirm: 'Are you sure?' }, method: :delete
 
-      p = link_to 'Edit', edit_recipe_path(@recipe), class: 'button'
-      p = link_to 'Delete', recipe_path(@recipe.id), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button'
+      = form_for([@recipe, @recipe.notes.build]) do |f|
+        .form-group
+          .comments-input
+            = f.text_area :body, placeholder: 'Add a note here'
+
+          = f.submit 'Add note', class: 'button note-button'
+
+      #quantity-breakdown
+        = form_for @recipe do |f|
+          .form-group
+            = f.number_field :quantity, class: 'form-control form-portion', value: number_with_precision(@recipe.quantity, precision: 0), placeholder: 'Servings'
+
+
+            = f.submit 'Update', class: 'button servings-button'
+
+      .buttons
+        = link_to 'Edit', edit_recipe_path(@recipe), class: 'button edit-button'
+        = link_to 'Delete', recipe_path(@recipe.id), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button delete-button'
 
   .bread-2
     = image_tag('Bread-2.png')

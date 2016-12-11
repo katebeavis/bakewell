@@ -12,14 +12,6 @@ $main-text-color: #222;
   margin-left: 1em;
 }
 
-.form-portion {
-  min-width: 0;
-  max-width: 5em;
-  display: inline;
-  margin: auto;
-  margin-top: -1em;
-}
-
 .hint {
   font-size: 0.8em;
   color: grey;
@@ -217,26 +209,35 @@ input.button:hover {
 
 .cost-breakdown {
   font-size: 1.75em;
-  float: right;
+  text-align: center;
+  a {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-decoration: none;
+  }
 }
 
-.cost-breakdown span:nth-child(2) {
-  font-size: 1.2em;
-}
-
-.quantity-breakdown {
-  font-size: 1.75em;
+#quantity-breakdown {
+  margin-top: 1em;
   float: left;
+  .form-portion {
+    max-width: 7em;
+    float: left;
+    display: inline-block;
+    margin-right: 1em;
+    height: 3em;
+  }
+  .servings-button {
+    margin-top: 0;
+  }
 }
 
-.servings-button {
-  font-size: 0.7em !important;
-  margin-top: 0.8em !important;
-}
-
-.show-title {
+h1.show-title {
   margin-bottom: 0.25em;
   font-size: 5em;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
 }
 
 .bread-2 {
@@ -259,6 +260,35 @@ input.button:hover {
 
 .comments-body {
   font-size: 1.5em;
+  padding: 0.5em;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#comments {
+  margin-top: 4em;
+  h2 {
+    text-decoration: underline;
+  }
+  a {
+    font-size: 0.6em;
+  }
+}
+
+
+textarea#note_body {
+  width: 77%;
+  float: left;
+  outline: none;
+  resize: none;
+  border: 1px solid #d3d3d3;
+  border-radius: 0.2em;
+}
+
+input.note-button {
+  margin-top: 0em;
+  float: right;
 }
 
 .ingredient-amount, .ingredient-size {
@@ -277,4 +307,11 @@ input.button:hover {
   margin-left: 0.1em;
 }
 
+.edit-button, .delete-button {
+  margin-right: 1em;
+}
 
+.buttons {
+  width: 100%;
+  float: left;
+}

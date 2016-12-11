@@ -111,31 +111,11 @@ body {
   font-size: 1vw;
 }
 
-// .page-header span:hover {
-//   background-color: $cream-font-color;
-// }
-
-// .page-header span a:hover {
-//   color: $main-text-color; 
-//   text-decoration: none; 
-//   cursor: pointer;
-// }
-
 .page-header span:nth-child(3) {
   position: relative;
   top: 0.8em;
   right: 0.5em;
-//   // color: black;
-//   // padding: 0.5em 0.7em 0.5em 0.7em;
-//   // border-radius: 0.25em;
-//   // background-color: #222;
-//   // border-color: #222;
 }
-
-// span.btn:hover {
-//   background-color: #FEF9F0;
-//   border-color: #FEF9F0;
-// }
 
 .page-header {
   border: none;
@@ -147,8 +127,8 @@ form#search-form {
 }
 
 .button {
-  font-size: 1.5vw;
-  padding: 0.3em 2em 0.3em 2em;
+  font-size: 1.3vw;
+  padding: 0.3em 0.8em 0.3em 0.8em;
   border: 2px solid #222;
   border-radius: 4em;
   font-weight: 400;
