@@ -27,8 +27,7 @@ section.container
             td.hint.text-right = "(#{number_to_currency(i.calculate_price_per_unit * 100, unit: "£", precision: i.determine_precision)}/100#{i.amount_unit_of_measurement unless i.is_unit?})"
 
       #comments
-        - if @notes.count >= 1
-          h2 Notes
+        h2 Notes
         - @notes.each do |note|
           .comments-body
             = note.body
@@ -41,17 +40,21 @@ section.container
 
           = f.submit 'Add note', class: 'button note-button'
 
-      #quantity-breakdown
-        = form_for @recipe do |f|
-          .form-group
-            = f.number_field :quantity, class: 'form-control form-portion', value: number_with_precision(@recipe.quantity, precision: 0), placeholder: 'Servings'
+      .settings
+        h3 Settings
+        #quantity-breakdown
+          h4 Servings
+          = form_for @recipe do |f|
+            .form-group
+              = f.number_field :quantity, class: 'form-control form-portion', value: number_with_precision(@recipe.quantity, precision: 0)
 
 
-            = f.submit 'Update', class: 'button servings-button'
+              = f.submit 'Update', class: 'button servings-button'
 
-      .buttons
-        = link_to 'Edit', edit_recipe_path(@recipe), class: 'button edit-button'
-        = link_to 'Delete', recipe_path(@recipe.id), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button delete-button'
+          .buttons
+            h4 Recipe
+            = link_to 'Edit', edit_recipe_path(@recipe), class: 'button edit-button'
+            = link_to 'Delete', recipe_path(@recipe.id), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button delete-button'
 
   .bread-2
     = image_tag('Bread-2.png')

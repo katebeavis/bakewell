@@ -220,15 +220,20 @@ input.button:hover {
 #quantity-breakdown {
   margin-top: 1em;
   float: left;
+  margin: 0 auto;
+  width: 100%;
   .form-portion {
-    max-width: 7em;
-    float: left;
+    max-width: 4em;
     display: inline-block;
     margin-right: 1em;
-    height: 3em;
+  }
+  h4 {
+    text-align: center;
+    text-decoration: underline;
   }
   .servings-button {
     margin-top: 0;
+    font-size: 1em;
   }
 }
 
@@ -253,7 +258,6 @@ h1.show-title {
 }
 
 .no-recipe-warning {
-  max-width: 50%;
   margin: 0 auto;
   margin-top: 2em;
 }
@@ -308,10 +312,28 @@ input.note-button {
 }
 
 .edit-button, .delete-button {
-  margin-right: 1em;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  font-size: 1.1em !important;
 }
 
 .buttons {
   width: 100%;
+  margin-bottom: 0.4em;
+  text-align: center;
+  h4 {
+    text-decoration: underline;
+    margin-bottom: 0.8em;
+  }
+}
+
+.settings {
+  width: 100%;
+  height: 100%;
   float: left;
+  margin-top: 2em;
+  h3 {
+    text-decoration: underline;
+    text-align: center;
+  }
 }
