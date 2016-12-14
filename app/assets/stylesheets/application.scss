@@ -92,29 +92,22 @@ body {
   padding-top: 1.5em;
 }
 
-.page-header span:first-child {
+.logout-button {
+  margin-top: 0.4em;
+  float: right;
+}
+
+.settings-button {
   float: right;
   position: relative;
-  top: 0.8em;
-  right: -1em;
-}
-
-.page-header span:nth-child(2) {
-  float: right;
-  position: relative;
-  top: 0.8em;
-  left: 0.7em;
-}
-
-.page-header span a {
-  z-index: 10;
-  font-size: 1vw;
-}
-
-.page-header span:nth-child(3) {
-  position: relative;
-  top: 0.8em;
+  top: 0.4em;
   right: 0.5em;
+}
+
+.home-button {
+  float: left;
+  position: absolute;
+  top: 0.4em;
 }
 
 .page-header {
@@ -122,8 +115,17 @@ body {
 }
 
 form#search-form {
-  margin-top: 0.4em;
-  float: left;
+  position: absolute;
+  top: 0.7em;
+  left: 8.2em;
+  width: 50%;
+  input#search {
+    outline: none;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    height: 2.5em;
+    padding: 1em;
+  }
 }
 
 .button {
@@ -144,21 +146,29 @@ form#search-form {
   color: $main-text-color;
 }
 
+.devise-links a:nth-child(3) {
+  margin-top: 14em;
+}
+
+
 .social {
   text-align: center;
-  list-style-type: none;
-  opacity: 0.4;
   display: inline-block;
-  margin: 1em 1em 2em 0;
-  width: 50px;
-  height: 50px;
+  margin: 1em 1em 0.5em 0;
   display: block;
   background-color: blue;
+  padding: 0.4em;
   width: 100%;
   height: 100%;
-  text-indent: -99999px;
+  text-indent: 2.1em;
+  color: $cream-font-color!important;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
   &.facebook {
     background: image-url('facebook.svg');
+    background-position: 1em 0.4em;
+    background-size: 1.5em;
     background-color: #3B5998;
     background-repeat: no-repeat;
     &:hover {
