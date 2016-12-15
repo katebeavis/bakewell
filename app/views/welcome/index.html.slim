@@ -11,14 +11,21 @@ section.container
 
 section.container id='intro-one'
   .row
-    .col-md-8.col-md-offset-2
+    .col-md-6.col-md-offset-3.text-center
       p Bakewell is a simple, straightforward website to calculate recipe costs.
       
       p It was inspired by, and created for my mum who loves to bake but finds recipe apps too complicated for her needs, and Excel spreadsheets not intuitive enough.
 
-      p You can calculate the total cost of a recipe and the cost per serving, and store recipes for further reference. Think of it as a handy notebook to keep track of all your recipe costs in one place!
+      br
+
       = image_tag('mum_baking.jpg', class: 'mum')
       p.hint My mum doing what she loves best
+
+      br
+
+      p You can calculate the total cost of a recipe and the cost per serving, add notes, and store recipes for further reference.
+
+      p Think of it as a handy notebook to keep track of all your recipe costs in one place!
 
       .get-started
         = link_to 'Get started!', recipes_path, class: 'button'

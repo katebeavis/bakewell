@@ -45,6 +45,10 @@ body {
   margin-bottom: 4em;
 }
 
+p.alert:empty {
+  display: none;
+}
+
 .pre-footer {
   clear: both;
 }
@@ -168,7 +172,7 @@ form#search-form {
   font-family: 'Roboto', sans-serif;
   &.facebook {
     background: image-url('facebook.svg');
-    background-position: 1em 0.4em;
+    background-position: 1em 0.3em;
     background-size: 1.5em;
     background-color: #3B5998;
     background-repeat: no-repeat;
