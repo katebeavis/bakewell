@@ -46,7 +46,7 @@ section.container
           h4 Servings
           = form_for @recipe do |f|
             .form-group
-              = f.number_field :quantity, class: 'form-control form-portion', value: number_with_precision(@recipe.quantity, precision: 0)
+              = f.number_field :quantity, min: 0, class: 'form-control form-portion', value: number_with_precision(@recipe.quantity, precision: 0)
 
 
               = f.submit 'Update', class: 'button servings-button'
