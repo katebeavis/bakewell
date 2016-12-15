@@ -15,6 +15,8 @@ class Ingredient < ApplicationRecord
   before_save :update_amount_unit_column, :if => :amount_can_be_converted?
   before_save :update_unit_price_column
 
+  CONVERTABLE_UNITS = ['kg', 'l']
+
   def update_unit_price_column
     self.unit_price = calculate_price_per_amount
   end
@@ -29,10 +31,12 @@ class Ingredient < ApplicationRecord
 
   def update_size_unit_column
     self.size = convert_size_unit
+    self.size_unit_of_measurement = converted_size_unit
   end
 
   def update_amount_unit_column
     self.amount = convert_amount_unit
+    self.amount_unit_of_measurement = converted_amount_unit
   end
 
   def is_unit?
@@ -46,19 +50,29 @@ class Ingredient < ApplicationRecord
   private
 
   def size_can_be_converted?
-    size_unit_is_kg_or_litre? && size_is_less_than_10?
+    CONVERTABLE_UNITS.include?(size_unit_of_measurement)
   end
 
   def amount_can_be_converted?
-    amount_unit_is_kg_or_litre? && amount_is_less_than_10?
+    CONVERTABLE_UNITS.include?(amount_unit_of_measurement)
   end
 
-  def size_is_less_than_10?
-    self.size < 10
+  def converted_size_unit
+    case size_unit_of_measurement
+    when 'kg'
+      'g'
+    when 'l'
+      'ml'
+    end
   end
 
-  def amount_is_less_than_10?
-    self.amount < 10
+  def converted_amount_unit
+    case amount_unit_of_measurement
+    when 'kg'
+      'g'
+    when 'l'
+      'ml'
+    end
   end
 
   def convert_size_unit
@@ -67,13 +81,5 @@ class Ingredient < ApplicationRecord
 
   def convert_amount_unit
     self.amount * 1000
-  end
-
-  def size_unit_is_kg_or_litre?
-    self.size_unit_of_measurement == 'kg' || self.size_unit_of_measurement == 'l'
-  end
-
-  def amount_unit_is_kg_or_litre?
-    self.amount_unit_of_measurement == 'kg' || self.amount_unit_of_measurement == 'l'
   end
 end
