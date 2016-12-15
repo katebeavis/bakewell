@@ -15,7 +15,7 @@ class Ingredient < ApplicationRecord
   before_save :update_amount_unit_column, :if => :amount_can_be_converted?
   before_save :update_unit_price_column
 
-  CONVERTABLE_UNITS = ['kg', 'l']
+  CONVERTABLE_UNITS = ['kg', 'l', 'lb', 'tsp', 'tbsp', 'pint']
 
   def update_unit_price_column
     self.unit_price = calculate_price_per_amount
@@ -30,13 +30,13 @@ class Ingredient < ApplicationRecord
   end
 
   def update_size_unit_column
-    self.size = convert_size_unit
-    self.size_unit_of_measurement = converted_size_unit
+    self.size = (self.size * multiplier("size"))
+    self.size_unit_of_measurement = unit_to_convert_to("size")
   end
 
   def update_amount_unit_column
-    self.amount = convert_amount_unit
-    self.amount_unit_of_measurement = converted_amount_unit
+    self.amount = (self.amount * multiplier("amount"))
+    self.amount_unit_of_measurement = unit_to_convert_to("amount")
   end
 
   def is_unit?
@@ -57,29 +57,29 @@ class Ingredient < ApplicationRecord
     CONVERTABLE_UNITS.include?(amount_unit_of_measurement)
   end
 
-  def converted_size_unit
-    case size_unit_of_measurement
+  def unit_to_convert_to(type)
+    case self.send("#{type}_unit_of_measurement")
     when 'kg'
       'g'
-    when 'l'
+    when 'l', 'tsp', 'tbsp', 'pint'
       'ml'
+    when 'lb'
+      'oz'
     end
   end
 
-  def converted_amount_unit
-    case amount_unit_of_measurement
-    when 'kg'
-      'g'
-    when 'l'
-      'ml'
+  def multiplier(type)
+    case self.send("#{type}_unit_of_measurement")
+    when 'kg', 'l'
+      1000
+    when 'lb'
+      16
+    when 'tsp'
+      5
+    when 'tbsp'
+      15
+    when 'pint'
+      568
     end
-  end
-
-  def convert_size_unit
-    self.size * 1000
-  end
-
-  def convert_amount_unit
-    self.amount * 1000
   end
 end
