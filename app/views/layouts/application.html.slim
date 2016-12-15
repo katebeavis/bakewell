@@ -12,10 +12,10 @@ html lang='en'
   body
     = render 'layouts/header'
 
-    / - if notice
-    /   p.alert.alert-success = notice
-    / - if alert
-    /   p.alert.alert-danger = alert
+    - if notice
+      p.alert.alert-success = notice
+    - if alert
+      p.alert.alert-danger = alert
     
     = yield
     .pre-footer
