@@ -12,8 +12,16 @@ section.container
 section.container id='intro-one'
   .row
     .col-md-8.col-md-offset-2
-      h2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+      p Bakewell is a simple, straightforward website to calculate recipe costs.
+      
+      p It was inspired by, and created for my mum who loves to bake but finds recipe apps too complicated for her needs, and Excel spreadsheets not intuitive enough.
+
+      p You can calculate the total cost of a recipe and the cost per serving, and store recipes for further reference. Think of it as a handy notebook to keep track of all your recipe costs in one place!
       = image_tag('mum_baking.jpg', class: 'mum')
+      p.hint My mum doing what she loves best
+
+      .get-started
+        = link_to 'Get started!', recipes_path, class: 'button'
 
 .egg
   = image_tag('Egg-19.png')

@@ -1,7 +1,7 @@
 var ready;
 ready = function() {
   $('a i.fa-chevron-down').mouseover(function(){
-      $(this).effect('shake', {distance: 5, times:1}, 100);
+      $(this).effect('bounce', {distance: 5, times:1}, 400);
   });
 
   $(function() {
@@ -12,7 +12,7 @@ ready = function() {
         if (target.length) {
           $('html, body').animate({
             scrollTop: target.offset().top
-          }, 1000);
+          }, 300);
           return false;
         }
       }
