@@ -1,4 +1,6 @@
 require 'rails_helper'
+require './spec/support/features/login_macros.rb'
+include LoginMacros
 
 RSpec.describe 'Recipe page', type: :feature do
   let(:user) { FactoryGirl.create(:user) }
@@ -19,35 +21,17 @@ RSpec.describe 'Recipe page', type: :feature do
 
       expect(page).to have_content('What would you like to call your recipe?')
 
-      fill_in 'recipe[name]', with: 'Mini Bakewells'
+      new_recipe_page = Pages::NewRecipe.new
 
-      fill_in 'recipe[ingredients_attributes][0][name]', with: 'Sugar'
-      fill_in 'recipe[ingredients_attributes][0][amount]', with: '200'
-      select 'g', from: "recipe[ingredients_attributes][0][amount_unit_of_measurement]"
-      fill_in 'recipe[ingredients_attributes][0][price]', with: '1.50'
-      fill_in 'recipe[ingredients_attributes][0][size]', with: '1'
-      select 'kg', from: "recipe[ingredients_attributes][0][size_unit_of_measurement]"
+      new_recipe_page.fill_in_title
 
-      fill_in 'recipe[ingredients_attributes][1][name]', with: 'Butter'
-      fill_in 'recipe[ingredients_attributes][1][amount]', with: '100'
-      select 'g', from: "recipe[ingredients_attributes][1][amount_unit_of_measurement]"
-      fill_in 'recipe[ingredients_attributes][1][price]', with: '2'
-      fill_in 'recipe[ingredients_attributes][1][size]', with: '250'
-      select 'g', from: "recipe[ingredients_attributes][1][size_unit_of_measurement]"
+      new_recipe_page.fill_in_ingredient(0, 'Sugar', 200, 'g', 1.50, 1, 'kg')
 
-      fill_in 'recipe[ingredients_attributes][2][name]', with: 'Flour'
-      fill_in 'recipe[ingredients_attributes][2][amount]', with: '500'
-      select 'g', from: "recipe[ingredients_attributes][2][amount_unit_of_measurement]"
-      fill_in 'recipe[ingredients_attributes][2][price]', with: '2'
-      fill_in 'recipe[ingredients_attributes][2][size]', with: '1.5'
-      select 'kg', from: "recipe[ingredients_attributes][2][size_unit_of_measurement]"
+      new_recipe_page.fill_in_ingredient(1, 'Butter', 100, 'g', 2, 250, 'g')
 
-      fill_in 'recipe[ingredients_attributes][3][name]', with: 'Egg'
-      fill_in 'recipe[ingredients_attributes][3][amount]', with: '2'
-      select 'unit', from: "recipe[ingredients_attributes][3][amount_unit_of_measurement]"
-      fill_in 'recipe[ingredients_attributes][3][price]', with: '1'
-      fill_in 'recipe[ingredients_attributes][3][size]', with: '10'
-      select 'unit', from: "recipe[ingredients_attributes][3][size_unit_of_measurement]"
+      new_recipe_page.fill_in_ingredient(2, 'Flour', 500, 'g', 2, 1.50, 'kg')
+
+      new_recipe_page.fill_in_ingredient(3, 'Egg', 2, 'unit', 1, 10, 'unit')
 
       click_button 'Create recipe'
 
@@ -59,14 +43,5 @@ RSpec.describe 'Recipe page', type: :feature do
       expect(page).to have_content('£0.30')
       expect(page).to have_content('£0.15/100g')
     end
-  end
-
-  def sign_in(user)
-    visit root_path
-    click_link 'Get started'
-    expect(page).to have_content('Log in')
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
   end
 end
