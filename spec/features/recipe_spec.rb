@@ -4,6 +4,7 @@ include LoginMacros
 
 RSpec.describe 'Recipe page', type: :feature do
   let(:user) { FactoryGirl.create(:user) }
+  let(:new_recipe_page) { Pages::NewRecipe.new }
 
   context 'adding a recipe' do
     before do
@@ -21,9 +22,9 @@ RSpec.describe 'Recipe page', type: :feature do
 
       expect(page).to have_content('What would you like to call your recipe?')
 
-      new_recipe_page = Pages::NewRecipe.new
-
       new_recipe_page.fill_in_title
+
+      find('.chevron-anchor-recipes').click
 
       new_recipe_page.fill_in_ingredient(0, 'Sugar', 200, 'g', 1.50, 1, 'kg')
 
@@ -40,8 +41,33 @@ RSpec.describe 'Recipe page', type: :feature do
       expect(page).to have_content('Cost: £1.97')
       expect(page).to have_content('Sugar')
       expect(page).to have_content('200g')
-      expect(page).to have_content('£0.30')
-      expect(page).to have_content('£0.15/100g')
+      expect(page).to have_content('Butter')
+      expect(page).to have_content('100g')
+      expect(page).to have_content('Flour')
+      expect(page).to have_content('500g')
+      expect(page).to have_content('Egg')
+      expect(page).to have_content('2')
+    end
+
+    scenario 'removing ingredient fields' do
+      visit recipes_path
+
+      click_link 'Add recipe'
+
+      new_recipe_page.fill_in_title
+
+      find('.chevron-anchor-recipes').click
+
+      new_recipe_page.fill_in_ingredient(0, 'Sugar', 200, 'g', 1.50, 1, 'kg')
+
+      remove_links = page.all(".remove_fields")
+      remove_links[1].click
+      remove_links[2].click
+      remove_links[3].click
+
+      click_button 'Create recipe'
+      expect(page).to have_current_path(recipe_path(Recipe.last))
+      expect(page).to have_content('Mini Bakewells')
     end
   end
 end
