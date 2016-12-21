@@ -1,11 +1,8 @@
 require 'rails_helper'
 require './spec/support/features/login_macros.rb'
+include LoginMacros
 
 RSpec.describe 'Recipe page', type: :feature do
-  before(:all) do
-    Capybara.current_driver = :selenium
-  end
-  include LoginMacros
   let(:user) { FactoryGirl.create(:user) }
   let(:new_recipe_page) { Pages::NewRecipe.new }
 
@@ -40,6 +37,7 @@ RSpec.describe 'Recipe page', type: :feature do
       visit recipes_path
       
       expect(page).to have_content(user.name)
+
       expect(page).to have_content('Looks like you haven\'t added any recipes yet! Click add recipe to get started')
       
       click_link 'Add recipe'
