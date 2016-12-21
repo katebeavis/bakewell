@@ -1,4 +1,4 @@
-section.container
+section.container id='top'
   span.title Bakewell
 
   .blurb.type-it
@@ -20,14 +20,13 @@ section.container id='intro-one'
       = image_tag('mum_baking.jpg', class: 'mum')
       p.hint My mum doing what she loves best
 
-      br
 
-      p You can calculate the total cost of a recipe and the cost per serving, add notes, and store recipes for further reference.
+      p You can calculate the total cost of a recipe, the cost per serving, add notes, and store recipes for further reference.
 
-      p Think of it as a handy notebook to keep track of all your recipe costs in one place!
+      / p Think of it as a handy notebook to keep track of all your recipe costs in one place!
 
       .get-started
-        = link_to 'Get started!', recipes_path, class: 'button'
+        = link_to 'Back to top', root_path(anchor: "top"), class: 'button'
 
 .egg
   = image_tag('Egg-19.png')
