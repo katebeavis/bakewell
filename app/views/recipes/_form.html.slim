@@ -14,7 +14,7 @@ section.container
             br   
             i.fa.fa-chevron-down.fa-4x.chevron-anchor-recipes
 
-            .ingredients-fields
+            div class=('hidden-field' unless is_edit?)
               h2 Now add some ingredients
               br
 
@@ -22,7 +22,7 @@ section.container
                 = render 'ingredient_fields', f: f
               .span
                 = link_to_add_association '<i class="fa fa-plus-circle fa-lg rotate"></i> Add another ingredient'.html_safe, f, :ingredients
-              .text-center
+              .text-center.submit-button
                 = f.submit "#{button_text} recipe", class: 'button'
 
 .chocolate

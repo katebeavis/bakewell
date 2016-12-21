@@ -2,7 +2,7 @@ var ready;
 ready = function() {
 
   $('.chevron-anchor-recipes').on('click', function() {
-    $( ".ingredients-fields" ).fadeIn( "slow", function() {
+    $( ".hidden-field" ).fadeIn( "slow", function() {
     });
     $('.title-div').fadeOut('slow', function() {
     })
@@ -12,9 +12,9 @@ ready = function() {
     window.location = $(this).data("link")
   });
 
-  // $('i.fa-chevron-down').mouseover(function(){
-  //     $(this).effect('shake', {distance: 5, times:1}, 100);
-  // });
+  $('i.fa-chevron-down').mouseover(function(){
+      $(this).effect('bounce', {distance: 5, times:1}, 400);
+  });
 
 };
 

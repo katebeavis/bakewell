@@ -51,6 +51,10 @@ a.add_fields:hover {
   color: $main-text-color;
 }
 
+.submit-button {
+  margin-top: 1em;
+}
+
 .fa-chevron-circle-down {
   color: #337ab7;
 }
@@ -92,7 +96,7 @@ h1, h2 {
   border-radius: 5px;
 }
 
-.quantity-fields, .ingredients-fields {
+.hidden-field {
   display: none;
 }
 

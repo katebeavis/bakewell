@@ -11,6 +11,10 @@ module ApplicationHelper
     error_div_with klass.errors[attribute].first
   end
 
+  def is_edit?
+    params[:action] == 'edit'
+  end
+
   def greeting
     if (times[:morning]..times[:noon]).cover? times[:now]
       "Good morning"
