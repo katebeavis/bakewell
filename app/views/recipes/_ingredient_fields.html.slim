@@ -1,7 +1,7 @@
 .form-inline
   .nested-fields
     .field
-      = f.text_field :name, class: 'form-control ingredient-name', placeholder: "Ingredient name", required: true
+      = f.text_field :name, class: 'form-control ingredient-name', placeholder: "Name", required: true
 
       = f.number_field :amount, step: :any, min: 0, class: 'form-control form-control-inline ingredient-amount', placeholder: "Quantity", required: true, value: (number_with_precision(f.object.amount, precision: 0))
 

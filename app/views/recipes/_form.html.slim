@@ -1,29 +1,28 @@
 section.container
   .row
-    .col-md-10.col-md-offset-1
+    .col-md-8.col-md-offset-2
       - if @recipe.errors.any?
         .errors-div
           h4 Please fill in all fields
       h1 What would you like to call your recipe?
       br
-      .col-md-8.col-md-offset-2
-        = form_for @recipe do |f|
-          .form-group
-            = f.text_field :name, class: 'form-control', required: true
+      = form_for @recipe do |f|
+        .form-group
+          = f.text_field :name, class: 'form-control', required: true
+          br
+          br   
+          i.fa.fa-chevron-down.fa-4x.chevron-anchor-recipes
+
+          div class=('hidden-field' unless is_edit?)
+            h2 Now add some ingredients
             br
-            br   
-            i.fa.fa-chevron-down.fa-4x.chevron-anchor-recipes
 
-            div class=('hidden-field' unless is_edit?)
-              h2 Now add some ingredients
-              br
-
-              = f.fields_for :ingredients do |f|
-                = render 'ingredient_fields', f: f
-              .span
-                = link_to_add_association '<i class="fa fa-plus-circle fa-lg rotate"></i> Add another ingredient'.html_safe, f, :ingredients
-              .text-center.submit-button
-                = f.submit "#{button_text} recipe", class: 'button'
+            = f.fields_for :ingredients do |f|
+              = render 'ingredient_fields', f: f
+            .span
+              = link_to_add_association '<i class="fa fa-plus-circle fa-lg rotate"></i> Add another ingredient'.html_safe, f, :ingredients
+            .text-center.submit-button
+              = f.submit "#{button_text} recipe", class: 'button'
 
 .chocolate
   = image_tag('chocolate-1.png')

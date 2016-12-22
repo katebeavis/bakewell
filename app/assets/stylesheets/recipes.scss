@@ -175,7 +175,7 @@ table {
   max-width: 10em;
   position: fixed;
   bottom: -2em;
-  left: -8em;
+  left: -11em;
 }
 
 input.button {
@@ -237,7 +237,7 @@ input.button:hover {
   }
   .servings-button {
     margin-top: 0;
-    font-size: 1em;
+    font-size: 1.1em;
   }
 }
 
@@ -351,4 +351,48 @@ input.note-button {
   text-align: center;
   font-size: 1em;
   margin-top: 0.4em;
+}
+
+@media (max-width: 1024px) {
+  #top {
+    margin-top: 10em;
+  }
+
+  #intro-one {
+    margin-top: 10em!important;
+  }
+
+  .ingredient-name {
+    max-width: 7em;
+  }
+
+  .ingredient-size {
+    max-width: 6.2em;
+  }
+
+  .ingredient-amount {
+    max-width: 5.9em;
+  }
+
+  .dropdown {
+    max-width: 6em;
+  }
+
+  .bread {
+    left: -18em;
+  }
+
+  .bread-2 {
+    left: -20em;
+  }
+
+  .chocolate-2 {
+    right: -18em;
+    bottom: -10em;
+  }
+
+  .chocolate {
+    left: -20em;
+    bottom: -5em;
+  }
 }
