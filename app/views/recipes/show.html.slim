@@ -26,18 +26,7 @@ section.container
             td.hint = number_to_currency(i.unit_price, unit: "£")
             td.hint.text-right = "(#{number_to_currency(i.calculate_price_per_unit * 100, unit: "£", precision: i.determine_precision)}/100#{i.amount_unit_of_measurement unless i.is_unit?})"
 
-      #notes
-        h2 Notes
-        - @notes.each do |note|
-          .note
-            = note.body
-            = link_to '<i class="fa fa-times-circle fa-lg rotate"></i>'.html_safe, [note.recipe, note], data: { confirm: 'Are you sure?' }, method: :delete
-
-      = form_for([@recipe, @recipe.notes.build]) do |f|
-        .form-group
-          = f.text_area :body, placeholder: 'Add a note here'
-
-          = f.submit 'Add note', class: 'button'
+      = render 'notes'
 
       .settings
         #quantity-breakdown

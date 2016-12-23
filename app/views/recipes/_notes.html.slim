@@ -1,0 +1,12 @@
+#notes
+  h2 Notes
+  - @notes.each do |note|
+    .note
+      = note.body
+      = link_to '<i class="fa fa-times-circle fa-lg rotate"></i>'.html_safe, [note.recipe, note], data: { confirm: 'Are you sure?' }, method: :delete
+
+= form_for([@recipe, @recipe.notes.build]) do |f|
+  .form-group
+    = f.text_area :body, placeholder: 'Add a note here'
+
+    = f.submit 'Add note', class: 'button'
