@@ -18,10 +18,7 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
-$cream-font-color: #F9F1DC;
-$background-color: #222;
-$main-text-color: #222;
+ @import "variables";
 
 html {
   position: relative;
@@ -31,14 +28,11 @@ html {
 body {
   font-family: 'Lora', serif;
   font-weight: 600;
-  min-height: 100%;
-  overflow-x:hidden;
   background-image: image-url("paper-background-7.jpg");
 }
 
 .page-header {
   margin-top: 0;
-  min-height: 4em;
 }
 
 body {
@@ -55,70 +49,35 @@ p.alert:empty {
   display: none;
 }
 
-.pre-footer {
-  clear: both;
-}
-
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 3.5em;
 }
 
 .page-footer span {
-  text-align: center;
-  display: inline-block;
-  margin: auto;
-  padding-top: 1.5em;
-}
-
-.page-footer span:first-child {
   color: $main-text-color;
   float: right;
   position: relative;
   top: 1em;
-  right: -0.7em;
-  padding: 0.3em 0.5em 0.3em 0.5em;
-  border-radius: 0.25em;
 }
 
 .page-footer span:nth-child(2) {
-  color: $main-text-color;
-  float: right;
-  position: relative;
-  top: 1em;
-  left: 1.2em;
-  padding: 0.3em 0.5em 0.3em 0.5em;
-  border-radius: 0.25em;
+  margin-right: 0.5em;
   a {
     color: $main-text-color;
   }
 }
 
-.page-footer span {
-  text-align: center;
-  display: inline-block;
-  margin: auto;
-  padding-top: 1.5em;
-}
-
-.logout-button {
+.logout-button, .settings-button {
   margin-top: 0.4em;
+  margin-left: 0.5em;
   float: right;
-}
-
-.settings-button {
-  float: right;
-  position: relative;
-  top: 0.4em;
-  right: 0.5em;
 }
 
 .home-button {
   float: left;
-  position: absolute;
-  top: 0.4em;
+  margin-top: 0.4em;
 }
 
 .page-header {
@@ -129,7 +88,6 @@ form#search-form {
   position: absolute;
   top: 0.7em;
   left: 8.2em;
-  width: 50%;
   input#search {
     border: 1px solid #d3d3d3;
     border-radius: 5px;
@@ -140,7 +98,7 @@ form#search-form {
 
 .button {
   font-size: 1.3vw;
-  padding: 0.3em 0.8em 0.3em 0.8em;
+  padding: 0.2em 0.8em 0.2em 0.8em;
   border: 2px solid #222;
   border-radius: 4em;
   font-weight: 400;
@@ -162,14 +120,10 @@ form#search-form {
 
 
 .social {
-  text-align: center;
-  display: inline-block;
   margin: 1em 1em 0.5em 0;
   display: block;
-  background-color: blue;
   padding: 0.4em;
   width: 100%;
-  height: 100%;
   text-indent: 2.1em;
   color: $cream-font-color!important;
   border: none;

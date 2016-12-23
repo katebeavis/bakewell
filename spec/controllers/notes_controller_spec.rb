@@ -30,7 +30,7 @@ RSpec.describe NotesController, type: :controller do
       it 'redirects to the recipe page' do
         post :create, params: params
 
-        expect(response).to redirect_to "http://test.host/recipes/1#comments"
+        expect(response).to redirect_to "http://test.host/recipes/1#notes"
       end
     end
 

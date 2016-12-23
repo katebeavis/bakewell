@@ -4,7 +4,7 @@ class NotesController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @note = @recipe.notes.new(notes_params)
     if @note.save
-      redirect_to recipe_path(@recipe, anchor: 'comments')
+      redirect_to recipe_path(@recipe, anchor: 'notes')
     end
   end
 

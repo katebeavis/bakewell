@@ -1,9 +1,8 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$cream-font-color: #F9F1DC;
-$background-color: #222;
-$main-text-color: #222;
+
+@import "variables";
 
 .form-control-inline {
   min-width: 0;
@@ -235,10 +234,6 @@ input.button:hover {
     text-align: center;
     text-decoration: underline;
   }
-  .servings-button {
-    margin-top: 0;
-    font-size: 1.1em;
-  }
 }
 
 h1.show-title {
@@ -266,40 +261,6 @@ h1.show-title {
   margin-top: 2em;
 }
 
-.comments-body {
-  font-size: 1.5em;
-  padding: 0.5em;
-  border: 1px solid $main-text-color;
-  border-radius: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-#comments {
-  margin-top: 4em;
-  h2 {
-    text-decoration: underline;
-  }
-  a {
-    font-size: 0.6em;
-  }
-}
-
-
-textarea#note_body {
-  width: 77%;
-  float: left;
-  outline: none;
-  resize: none;
-  border: 1px solid #d3d3d3;
-  border-radius: 0.2em;
-  padding: 1em;
-}
-
-input.note-button {
-  margin-top: 0.7em;
-  float: right;
-}
-
 .ingredient-amount, .ingredient-size {
   max-width: 7em;
 }
@@ -319,17 +280,12 @@ input.note-button {
 .edit-button, .delete-button {
   margin-right: 0.2em;
   margin-left: 0.2em;
-  font-size: 1.1em !important;
 }
 
 .buttons {
   width: 100%;
-  margin-bottom: 0.4em;
+  margin-top: 2em;
   text-align: center;
-  h4 {
-    text-decoration: underline;
-    margin-bottom: 0.8em;
-  }
 }
 
 .settings {
