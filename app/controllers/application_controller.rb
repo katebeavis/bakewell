@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def version_number
-    @version_number = 0.1
+    @version_number = 0.2
   end
 
   protected
