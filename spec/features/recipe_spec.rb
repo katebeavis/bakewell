@@ -54,7 +54,7 @@ RSpec.describe 'Recipe page', type: :feature do
 
       new_recipe_page.fill_in_ingredient(2, 'Flour', 500, 'g', 2, 1.50, 'kg')
 
-      new_recipe_page.fill_in_ingredient(3, 'Egg', 2, 'unit', 1, 10, 'unit')
+      new_recipe_page.fill_in_ingredient(3, 'Egg', 2, 'each', 1, 10, 'each')
 
       click_button 'Create recipe'
 
@@ -86,7 +86,7 @@ RSpec.describe 'Recipe page', type: :feature do
 
       new_recipe_page.fill_in_ingredient(2, 'Flour', 500, 'g', 2, 1.50, 'kg')
 
-      new_recipe_page.fill_in_ingredient(3, 'Egg', 2, 'unit', 1, 10, 'unit')
+      new_recipe_page.fill_in_ingredient(3, 'Egg', 2, 'each', 1, 10, 'each')
 
       click_link 'Add another ingredient'
 

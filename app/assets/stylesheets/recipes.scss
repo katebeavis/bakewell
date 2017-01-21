@@ -261,20 +261,16 @@ h1.show-title {
   margin-top: 2em;
 }
 
-.ingredient-amount, .ingredient-size {
-  max-width: 7em;
+.ingredient-amount {
+  max-width: 6em;
+}
+
+.ingredient-size {
+  max-width: 4.5em;
 }
 
 .ingredient-price {
-  max-width: 5.6em;
-}
-
-.ingredient-name {
-  max-width: 10em;
-}
-
-.dropdown {
-  margin-left: 0.1em;
+  max-width: 4.5em;
 }
 
 .edit-button, .delete-button {
@@ -307,6 +303,14 @@ h1.show-title {
   text-align: center;
   font-size: 1em;
   margin-top: 0.4em;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
 
 @media (max-width: 1024px) {

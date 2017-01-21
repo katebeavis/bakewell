@@ -39,8 +39,8 @@ class Ingredient < ApplicationRecord
     self.amount_unit_of_measurement = unit_to_convert_to("amount")
   end
 
-  def is_unit?
-    self.amount_unit_of_measurement == 'unit'
+  def is_each?
+    self.amount_unit_of_measurement == 'each'
   end
 
   def determine_precision
