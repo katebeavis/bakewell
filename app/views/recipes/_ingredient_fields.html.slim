@@ -5,12 +5,12 @@
 
       = f.number_field :amount, step: :any, min: 0, class: 'form-control form-control-inline ingredient-amount', placeholder: "Quantity", required: true, value: (number_with_precision(f.object.amount, precision: 0)), title: "How much you used"
 
-      = f.select :amount_unit_of_measurement, [['g','g'],['kg','kg'],['ml','ml'],['l','l'],['oz','oz'],['lb','lb'],['tsp','tsp'],['tbsp','tbsp'],['pint','pint'],['each','each']], {prompt: 'Unit'}, {required: 'true', autofocus: 'true', class: 'form-control form-control-inline dropdown', placeholder: "g", title: "Unit of measurement"}
+      = f.select :amount_unit_of_measurement, [['g','g'],['kg','kg'],['ml','ml'],['l','l'],['oz','oz'],['lb','lb'],['tsp','tsp'],['tbsp','tbsp'],['pint','pint'],['each','unit']], {prompt: 'Unit'}, {required: 'true', autofocus: 'true', class: 'form-control form-control-inline dropdown', placeholder: "g", title: "Unit of measurement"}
 
       = f.number_field :price, step: :any, min: 0, class: 'form-control form-control-inline ingredient-price', placeholder: "Price", required: true, value: (number_with_precision(f.object.price, precision: 2)), title: "Price of pack"
 
       = f.number_field :size, step: :any, min: 0, class: 'form-control form-control-inline ingredient-size', placeholder: "Size", required: true, value: (number_with_precision(f.object.size, precision: 0)), title: "The size of the pack"
 
-      = f.select :size_unit_of_measurement, [['g','g'],['kg','kg'],['ml','ml'],['l','l'],['oz','oz'],['lb','lb'],['tsp','tsp'],['tbsp','tbsp'],['pint','pint'],['each','each']], {prompt: 'Unit'}, {required: 'true', autofocus: 'true', class: 'form-control form-control-inline dropdown', title: "Unit of measurement"}
+      = f.select :size_unit_of_measurement, [['g','g'],['kg','kg'],['ml','ml'],['l','l'],['oz','oz'],['lb','lb'],['tsp','tsp'],['tbsp','tbsp'],['pint','pint'],['each','unit']], {prompt: 'Unit'}, {required: 'true', autofocus: 'true', class: 'form-control form-control-inline dropdown', title: "Unit of measurement"}
       = link_to_remove_association '<i class="fa fa-times-circle fa-lg rotate"></i>'.html_safe, f
   br
